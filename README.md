@@ -1,6 +1,6 @@
-# Wharfedale
+# Hublot
 
-Магазин акустических систем Wharfedale.
+Интернет-магазин швейцарских часов Hublot.
 
 Stack:
 
