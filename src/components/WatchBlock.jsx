@@ -1,4 +1,12 @@
-const WatchBlock = ({title, image, price, count, calcWatchCount}) => {
+import {useState} from 'react';
+
+const WatchBlock = ({title, image, price}) => {
+    const [watchCount, setWatchCount] = useState(0);
+
+    const calcWatchCount = () => {
+        setWatchCount(prev => prev + 1);
+    };
+
     return (
         <div className="watch-block">
             <img
@@ -21,9 +29,9 @@ const WatchBlock = ({title, image, price, count, calcWatchCount}) => {
                 </ul>
             </div>
             <div className="watch-block__bottom">
-                <div className="watch-block__price">от {price} ₽</div>
+                <div className="watch-block__price">от {price}.000 ₽</div>
                 <button
-                    onClick={() => calcWatchCount()}
+                    onClick={calcWatchCount}
                     className="button button--outline button--add"
                 >
                     <svg
@@ -39,7 +47,7 @@ const WatchBlock = ({title, image, price, count, calcWatchCount}) => {
                         />
                     </svg>
                     <span>Добавить</span>
-                    <i>{count}</i>
+                    <i>{watchCount}</i>
                 </button>
             </div>
         </div>

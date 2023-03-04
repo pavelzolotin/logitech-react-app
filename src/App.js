@@ -8,7 +8,6 @@ import WatchBlock from './components/WatchBlock';
 import './scss/app.scss';
 
 function App() {
-    const [watchCount, setWatchCount] = useState(0);
     const [watches, setWatches] = useState([]);
 
     const fetchWatches = () => {
@@ -16,10 +15,6 @@ function App() {
             .then(res => res.json())
             .then(data => setWatches(data))
             .catch(err => console.warn(err));
-    };
-
-    const calcWatchCount = () => {
-        setWatchCount(watchCount + 1);
     };
 
     useEffect(() => {
@@ -45,8 +40,6 @@ function App() {
                                         title={watch.title}
                                         image={watch.imageUrl}
                                         price={watch.price}
-                                        count={watchCount}
-                                        calcWatchCount={calcWatchCount}
                                     />
                                 ))
                             }

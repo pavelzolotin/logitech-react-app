@@ -5,7 +5,7 @@
     "title": "Meca-10",
     "types": [0, 1],
     "sizes": [26, 30, 40],
-    "price": 695.000,
+    "price": 695,
     "category": 0,
     "rating": 4
   },
@@ -15,7 +15,7 @@
     "title": "Meca-10 King Gold",
     "types": [0],
     "sizes": [26, 40],
-    "price": 755.000,
+    "price": 755,
     "category": 0,
     "rating": 6
   },
@@ -25,7 +25,7 @@
     "title": "Big Bang Integral Beige",
     "types": [0],
     "sizes": [26, 40],
-    "price": 892.000,
+    "price": 892,
     "category": 1,
     "rating": 4
   },
@@ -35,7 +35,7 @@
     "title": "Big Bang Integral Black",
     "types": [1],
     "sizes": [26, 30, 40],
-    "price": 795.000,
+    "price": 795,
     "category": 2,
     "rating": 2
   },
@@ -45,7 +45,7 @@
     "title": "Big Bang Integral Green",
     "types": [0, 1],
     "sizes": [26, 30, 40],
-    "price": 720.000,
+    "price": 720,
     "category": 3,
     "rating": 8
   },
@@ -55,7 +55,7 @@
     "title": "Big Bang Original Black",
     "types": [0],
     "sizes": [30, 40],
-    "price": 699.000,
+    "price": 699,
     "category": 2,
     "rating": 2
   },
@@ -65,7 +65,7 @@
     "title": "Big Bang Original Blue",
     "types": [0, 1],
     "sizes": [26, 30, 40],
-    "price": 762.000,
+    "price": 762,
     "category": 1,
     "rating": 9
   },
@@ -75,7 +75,7 @@
     "title": "Big Bang Original Gold Blue",
     "types": [0, 1],
     "sizes": [26, 30, 40],
-    "price": 892.000,
+    "price": 892,
     "category": 4,
     "rating": 10
   },
@@ -85,7 +85,7 @@
     "title": "Big Bang Original Gold",
     "types": [0, 1],
     "sizes": [26, 30, 40],
-    "price": 895.000,
+    "price": 895,
     "category": 5,
     "rating": 10
   },
@@ -95,7 +95,7 @@
     "title": "Big Bang Original Steel",
     "types": [0, 1],
     "sizes": [26, 30, 40],
-    "price": 870.000,
+    "price": 870,
     "category": 5,
     "rating": 7
   },
@@ -105,7 +105,7 @@
     "title": "Square Bang King Gold",
     "types": [0, 1],
     "sizes": [26, 30, 40],
-    "price": 895.000,
+    "price": 895,
     "category": 5,
     "rating": 7
   },
@@ -115,7 +115,7 @@
     "title": "Square Bang Unico",
     "types": [0, 1],
     "sizes": [26, 30, 40],
-    "price": 880.000,
+    "price": 880,
     "category": 5,
     "rating": 7
   }
