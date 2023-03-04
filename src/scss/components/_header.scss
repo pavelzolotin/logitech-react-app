@@ -1,0 +1,39 @@
+@import '../variables';
+
+.header {
+  display: flex;
+  align-items: center;
+  min-height: 120px;
+  border-bottom: 1px solid $gray-line;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+    width: 230px;
+    height: 35px;
+
+    img {
+      width: 80%;
+    }
+
+    h1 {
+      color: #181818;
+      font-size: 24px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    p {
+      margin-top: 5px;
+      color: #7b7b7b;
+    }
+  }
+}

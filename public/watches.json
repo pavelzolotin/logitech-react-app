@@ -1,0 +1,122 @@
+[
+  {
+    "id": 0,
+    "imageUrl": "../images/1.png",
+    "title": "Meca-10",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 695.000,
+    "category": 0,
+    "rating": 4
+  },
+  {
+    "id": 1,
+    "imageUrl": "../images/2.png",
+    "title": "Meca-10 King Gold",
+    "types": [0],
+    "sizes": [26, 40],
+    "price": 755.000,
+    "category": 0,
+    "rating": 6
+  },
+  {
+    "id": 2,
+    "imageUrl": "../images/3.png",
+    "title": "Big Bang Integral Beige",
+    "types": [0],
+    "sizes": [26, 40],
+    "price": 892.000,
+    "category": 1,
+    "rating": 4
+  },
+  {
+    "id": 3,
+    "imageUrl": "../images/4.png",
+    "title": "Big Bang Integral Black",
+    "types": [1],
+    "sizes": [26, 30, 40],
+    "price": 795.000,
+    "category": 2,
+    "rating": 2
+  },
+  {
+    "id": 4,
+    "imageUrl": "../images/5.png",
+    "title": "Big Bang Integral Green",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 720.000,
+    "category": 3,
+    "rating": 8
+  },
+  {
+    "id": 5,
+    "imageUrl": "../images/6.png",
+    "title": "Big Bang Original Black",
+    "types": [0],
+    "sizes": [30, 40],
+    "price": 699.000,
+    "category": 2,
+    "rating": 2
+  },
+  {
+    "id": 6,
+    "imageUrl": "../images/7.png",
+    "title": "Big Bang Original Blue",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 762.000,
+    "category": 1,
+    "rating": 9
+  },
+  {
+    "id": 7,
+    "imageUrl": "../images/8.png",
+    "title": "Big Bang Original Gold Blue",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 892.000,
+    "category": 4,
+    "rating": 10
+  },
+  {
+    "id": 8,
+    "imageUrl": "../images/9.png",
+    "title": "Big Bang Original Gold",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 895.000,
+    "category": 5,
+    "rating": 10
+  },
+  {
+    "id": 9,
+    "imageUrl": "../images/10.png",
+    "title": "Big Bang Original Steel",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 870.000,
+    "category": 5,
+    "rating": 7
+  },
+  {
+    "id": 10,
+    "imageUrl": "../images/11.png",
+    "title": "Square Bang King Gold",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 895.000,
+    "category": 5,
+    "rating": 7
+  },
+  {
+    "id": 11,
+    "imageUrl": "../images/12.png",
+    "title": "Square Bang Unico",
+    "types": [0, 1],
+    "sizes": [26, 30, 40],
+    "price": 880.000,
+    "category": 5,
+    "rating": 7
+  }
+]
