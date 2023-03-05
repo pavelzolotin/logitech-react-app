@@ -1,37 +1,54 @@
 import {useState} from 'react';
 
-const WatchBlock = ({title, image, price}) => {
-    const [watchCount, setWatchCount] = useState(0);
+import {typeNames} from '../constants/data';
 
-    const calcWatchCount = () => {
-        setWatchCount(prev => prev + 1);
-    };
+const WatchBlock = ({title, imageUrl, price, sizes, types}) => {
+    const [activeType, setActiveType] = useState(0);
+    const [activeSize, setActiveSize] = useState(0);
+    const [watchCount, setWatchCount] = useState(0);
 
     return (
         <div className="watch-block">
             <img
                 className="watch-block__image"
-                src={image}
+                src={imageUrl}
                 alt="watch"
             />
             <h4 className="watch-block__title">{title}</h4>
             <div className="watch-block__selector">
                 <p>Материал:</p>
                 <ul>
-                    <li className="active">Сталь</li>
-                    <li>Титан</li>
+                    {
+                        types.map(type => (
+                            <li
+                                key={type.id}
+                                className={activeType === type.item || types.length === 1 ? 'active' : ''}
+                                onClick={() => setActiveType(type.item)}
+                            >
+                                {typeNames[type.item]}
+                            </li>
+                        ))
+                    }
                 </ul>
                 <p>Корпус:</p>
                 <ul>
-                    <li>38 мм</li>
-                    <li>41 мм</li>
-                    <li className="active">44 мм</li>
+                    {
+                        sizes.map((size, i) => (
+                            <li
+                                key={size.id}
+                                className={activeSize === i ? 'active' : ''}
+                                onClick={() => setActiveSize(i)}
+                            >
+                                {size.item} мм
+                            </li>
+                        ))
+                    }
                 </ul>
             </div>
             <div className="watch-block__bottom">
                 <div className="watch-block__price">от {price}.000 ₽</div>
                 <button
-                    onClick={calcWatchCount}
+                    onClick={() => setWatchCount(prev => prev + 1)}
                     className="button button--outline button--add"
                 >
                     <svg

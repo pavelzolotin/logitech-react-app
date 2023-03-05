@@ -18,7 +18,7 @@ function App() {
     };
 
     useEffect(() => {
-       fetchWatches();
+        fetchWatches();
     });
 
     return (
@@ -37,9 +37,7 @@ function App() {
                                 watches.map(watch => (
                                     <WatchBlock
                                         key={watch.id}
-                                        title={watch.title}
-                                        image={watch.imageUrl}
-                                        price={watch.price}
+                                        {...watch}
                                     />
                                 ))
                             }
