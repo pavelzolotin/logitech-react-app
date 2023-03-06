@@ -25,3 +25,18 @@ export const typeNames = [
     'Сталь',
     'Титан'
 ];
+
+export const sorts = [
+    {
+        id: 1,
+        title: 'популярности'
+    },
+    {
+        id: 2,
+        title: 'стоимости'
+    },
+    {
+        id: 3,
+        title: 'алфавиту'
+    }
+];
