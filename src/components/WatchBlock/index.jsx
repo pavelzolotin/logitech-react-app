@@ -1,8 +1,8 @@
 import {useState} from 'react';
 
-import {typeNames} from '../constants/data';
+import {typeNames} from '../../constants/data';
 
-const WatchBlock = ({title, imageUrl, price, sizes, types}) => {
+const Index = ({title, imageUrl, price, sizes, types}) => {
     const [activeType, setActiveType] = useState(0);
     const [activeSize, setActiveSize] = useState(0);
     const [watchCount, setWatchCount] = useState(0);
@@ -71,4 +71,4 @@ const WatchBlock = ({title, imageUrl, price, sizes, types}) => {
     );
 };
 
-export default WatchBlock;
+export default Index;

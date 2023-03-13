@@ -1,7 +1,7 @@
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
-import WatchBlock from '../components/WatchBlock';
-import Skeleton from '../components/Skeleton';
+import Index from '../components/WatchBlock';
+import Skeleton from '../components/WatchBlock/Skeleton';
 
 const Home = ({watches, isLoading}) => {
     return (
@@ -18,7 +18,7 @@ const Home = ({watches, isLoading}) => {
                             <Skeleton key={i}/>
                         ))
                         : watches.map(watch => (
-                            <WatchBlock
+                            <Index
                                 key={watch.id}
                                 {...watch}
                             />
