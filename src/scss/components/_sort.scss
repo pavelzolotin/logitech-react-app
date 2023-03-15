@@ -2,6 +2,7 @@
 
 .sort {
   position: relative;
+  width: 300px;
 
   &__label {
     display: flex;
@@ -31,7 +32,6 @@
     border-radius: 10px;
     overflow: hidden;
     padding: 10px 0;
-    width: 160px;
 
     ul {
       overflow: hidden;
@@ -51,4 +51,8 @@
       }
     }
   }
+}
+
+.sort-rotated {
+  transform: rotate(180deg);
 }

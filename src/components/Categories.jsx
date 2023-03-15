@@ -1,10 +1,6 @@
-import {useState} from 'react';
-
 import {categories} from '../constants/data';
 
-const Categories = () => {
-    const [activeTab, setActiveTab] = useState(0);
-
+const Categories = ({value, onClickCategory}) => {
     return (
         <div className="categories">
             <ul>
@@ -12,8 +8,8 @@ const Categories = () => {
                     categories.map((category, i) => (
                         <li
                             key={category.id}
-                            onClick={() => setActiveTab(i)}
-                            className={activeTab === i ? 'active' : ''}
+                            onClick={() => onClickCategory(i)}
+                            className={value === i ? 'active' : ''}
                         >
                             {category.title}
                         </li>

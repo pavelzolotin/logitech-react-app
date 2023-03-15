@@ -29,14 +29,17 @@ export const typeNames = [
 export const sorts = [
     {
         id: 1,
-        title: 'популярности'
+        title: 'популярности',
+        sortProperty: 'rating'
     },
     {
         id: 2,
-        title: 'стоимости'
+        title: 'стоимости',
+        sortProperty: 'price'
     },
     {
         id: 3,
-        title: 'алфавиту'
+        title: 'алфавиту',
+        sortProperty: 'title'
     }
 ];
