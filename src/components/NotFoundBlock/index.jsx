@@ -6,7 +6,7 @@ const NotFound = () => {
             <h1 className={styles.title}>
                 Ничего не найдено
             </h1>
-            <p className={styles.description}>К сожалению, данная страница отсутствует</p>
+            <p className={styles.description}>К сожалению, данная страница отсутствует.</p>
         </div>
     );
 };

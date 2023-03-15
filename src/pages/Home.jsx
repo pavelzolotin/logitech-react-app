@@ -1,14 +1,18 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
 
+import {SearchContext} from '../App';
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
-import Index from '../components/WatchBlock';
+import WatchBlock from '../components/WatchBlock';
 import Skeleton from '../components/WatchBlock/Skeleton';
+import Pagination from '../components/Pagination';
 
 const Home = () => {
-    const [watches, setWatches] = useState([]);
+    const {searchValue} = useContext(SearchContext);
+    const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [categoryId, setCategoryId] = useState(0);
+    const [currentPage, setCurrentPage] = useState(1);
     const [orderType, setOrderType] = useState('asc');
     const [sortType, setSortType] = useState({
         title: 'популярности',
@@ -23,16 +27,18 @@ const Home = () => {
         }
     };
 
-    const category = categoryId > 0 ? `category=${categoryId}` : ''
-
     useEffect(() => {
         const fetchWatches = () => {
             setIsLoading(true);
 
-            fetch(`https://6407307d862956433e676ec6.mockapi.io/items?${category}&sortBy=${sortType.sortProperty}&order=${orderType}`)
+            const category = categoryId > 0 ? `category=${categoryId}` : '';
+            const search = searchValue ? `search=${searchValue}` : '';
+
+            fetch(`https://6407307d862956433e676ec6.mockapi.io/items?page=${currentPage}
+            &limit=4&${category}${search}&sortBy=${sortType.sortProperty}&order=${orderType}`)
                 .then(res => res.json())
                 .then(data => {
-                    setWatches(data);
+                    setItems(data);
                     setIsLoading(false);
                 })
                 .catch(err => console.warn(err));
@@ -40,7 +46,18 @@ const Home = () => {
 
         fetchWatches();
         window.scrollTo(0, 0);
-    }, [category, sortType, orderType]);
+    }, [searchValue, currentPage, categoryId, sortType, orderType]);
+
+    const watches = items.map(watch => (
+        <WatchBlock
+            key={watch.id}
+            {...watch}
+        />
+    ));
+
+    const skeletons = [...Array(8)].map((_, i) => (
+        <Skeleton key={i}/>
+    ));
 
     return (
         <>
@@ -57,21 +74,16 @@ const Home = () => {
 
                 />
             </div>
-            <h2 className="content__title">Все часы</h2>
             <div className="content__items">
                 {
                     isLoading
-                        ? [...Array(8)].map((_, i) => (
-                            <Skeleton key={i}/>
-                        ))
-                        : watches.map(watch => (
-                            <Index
-                                key={watch.id}
-                                {...watch}
-                            />
-                        ))
+                        ? skeletons
+                        : watches
                 }
             </div>
+            <Pagination
+                onChangePage={number => setCurrentPage(number)}
+            />
         </>
     );
 };
