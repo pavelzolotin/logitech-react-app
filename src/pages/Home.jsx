@@ -23,14 +23,13 @@ const Home = () => {
         }
     };
 
-    const sortBy = sortType.sortProperty.replace('-', '');
     const category = categoryId > 0 ? `category=${categoryId}` : ''
 
     useEffect(() => {
         const fetchWatches = () => {
             setIsLoading(true);
 
-            fetch(`https://6407307d862956433e676ec6.mockapi.io/items?${category}&sortBy=${sortBy}&order=${orderType}`)
+            fetch(`https://6407307d862956433e676ec6.mockapi.io/items?${category}&sortBy=${sortType.sortProperty}&order=${orderType}`)
                 .then(res => res.json())
                 .then(data => {
                     setWatches(data);
@@ -41,7 +40,7 @@ const Home = () => {
 
         fetchWatches();
         window.scrollTo(0, 0);
-    }, [category, sortBy, orderType]);
+    }, [category, sortType, orderType]);
 
     return (
         <>
