@@ -1,0 +1,190 @@
+[
+  {
+    "id": 0,
+    "imageUrl": "../images/13.png",
+    "title": "MX Mechanical Mini",
+    "types": [
+      {
+        "id": 1,
+        "item": 1
+      }
+    ],
+    "price": 11600,
+    "category": [2, 4],
+    "rating": 4
+  },
+  {
+    "id": 1,
+    "imageUrl": "../images/15.png",
+    "title": "MX Mechanical",
+    "types": [
+      {
+        "id": 0,
+        "item": 0
+      }
+    ],
+    "price": 11800,
+    "category": 4,
+    "rating": 6
+  },
+  {
+    "id": 2,
+    "imageUrl": "../images/14.png",
+    "title": "K650",
+    "types": [
+      {
+        "id": 0,
+        "item": 0
+      },
+      {
+        "id": 1,
+        "item": 1
+      }
+    ],
+    "price": 4200,
+    "category": 0,
+    "rating": 4
+  },
+  {
+    "id": 3,
+    "imageUrl": "../images/16.png",
+    "title": "Pop Keys",
+    "types": [
+      {
+        "id": 0,
+        "item": 0
+      },
+      {
+        "id": 1,
+        "item": 1
+      }
+    ],
+    "price": 9400,
+    "category": 0,
+    "rating": 2
+  },
+  {
+    "id": 4,
+    "imageUrl": "../images/17.png",
+    "title": "MX Keys Mini",
+    "types": [
+      {
+        "id": 0,
+        "item": 0
+      },
+      {
+        "id": 1,
+        "item": 1
+      }
+    ],
+    "price": 8800,
+    "category": [2, 4],
+    "rating": 8
+  },
+  {
+    "id": 5,
+    "imageUrl": "../images/18.png",
+    "title": "K480",
+    "types": [
+      {
+        "id": 0,
+        "item": 0
+      }
+    ],
+    "price": 4400,
+    "category": [1, 2, 3],
+    "rating": 2
+  },
+  {
+    "id": 6,
+    "imageUrl": "../images/19.png",
+    "title": "K380",
+    "types": [
+      {
+        "id": 0,
+        "item": 0
+      }
+    ],
+    "price": 4800,
+    "category": [1, 2, 3],
+    "rating": 9
+  },
+  {
+    "id": 7,
+    "imageUrl": "../images/20.png",
+    "title": "Keys-To-Go",
+    "types": [
+      {
+        "id": 0,
+        "item": 0
+      }
+    ],
+    "price": 6200,
+    "category": [1, 2, 3],
+    "rating": 10
+  },
+  {
+    "id": 8,
+    "imageUrl": "../images/21.png",
+    "title": "K845",
+    "types": [
+      {
+        "id": 0,
+        "item": 0
+      }
+    ],
+    "price": 6800,
+    "category": 0,
+    "rating": 10
+  },
+  {
+    "id": 9,
+    "imageUrl": "../images/22.png",
+    "title": "Craft",
+    "types": [
+      {
+        "id": 0,
+        "item": 0
+      }
+    ],
+    "price": 14200,
+    "category": 0,
+    "rating": 7
+  },
+  {
+    "id": 10,
+    "imageUrl": "../images/23.png",
+    "title": "K780",
+    "types": [
+      {
+        "id": 0,
+        "item": 0
+      },
+      {
+        "id": 1,
+        "item": 1
+      }
+    ],
+    "price": 6200,
+    "category": 0,
+    "rating": 7
+  },
+  {
+    "id": 11,
+    "imageUrl": "../images/24.png",
+    "title": "K400",
+    "types": [
+      {
+        "id": 0,
+        "item": 0
+      },
+      {
+        "id": 1,
+        "item": 1
+      }
+    ],
+    "price": 3800,
+    "category": [1, 2, 3],
+    "rating": 7
+  }
+]

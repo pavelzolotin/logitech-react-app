@@ -5,25 +5,25 @@ export const categories = [
     },
     {
         id: 1,
-        title: 'Классические'
+        title: 'Бесшумные'
     },
     {
         id: 2,
-        title: 'Титановые'
+        title: 'Компактные'
     },
     {
         id: 3,
-        title: 'Керамические'
+        title: 'Мульти-девайс'
     },
     {
         id: 4,
-        title: 'С розовым золотом'
+        title: 'MX-серия'
     }
 ];
 
 export const typeNames = [
-    'Сталь',
-    'Титан'
+    'Белый',
+    'Чёрный'
 ];
 
 export const sorts = [

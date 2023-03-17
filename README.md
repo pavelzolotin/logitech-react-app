@@ -1,6 +1,6 @@
-# Hublot
+# Logitech
 
-Hublot swiss watches store.
+Computer peripherals and software store app.
 
 Stack:
 

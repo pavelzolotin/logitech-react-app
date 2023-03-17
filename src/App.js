@@ -1,4 +1,4 @@
-import {useState, createContext} from 'react';
+import {useState} from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 import Header from './components/Header';
@@ -8,8 +8,6 @@ import PageNotFound from './pages/PageNotFound';
 
 import './scss/app.scss';
 
-export const SearchContext = createContext('');
-
 function App() {
     const [searchValue, setSearchValue] = useState('');
 
@@ -17,26 +15,40 @@ function App() {
         <BrowserRouter>
             <div className="App">
                 <div className="wrapper">
-                    <SearchContext.Provider
-                        value={{searchValue, setSearchValue}}
-                    >
-                        <Header/>
-                        <div className="content">
-                            <div className="container">
-                                <Routes>
-                                    <Route path="/" element={
-                                        <Home/>
-                                    }/>
-                                    <Route path="/cart" element={
-                                        <Cart/>
-                                    }/>
-                                    <Route path="*" element={
-                                        <PageNotFound/>
-                                    }/>
-                                </Routes>
-                            </div>
+                    <Header
+                        searchValue={searchValue}
+                        setSearchValue={setSearchValue}
+                    />
+                    <div className="content">
+                        <div className="container">
+                            <Routes>
+                                <Route path="/" element={
+                                    <Home
+                                        type="mice"
+                                        searchValue={searchValue}
+                                    />
+                                }/>
+                                <Route path="/mice" element={
+                                    <Home
+                                        type="mice"
+                                        searchValue={searchValue}
+                                    />
+                                }/>
+                                <Route path="/keyboards" element={
+                                    <Home
+                                        type="keyboards"
+                                        searchValue={searchValue}
+                                    />
+                                }/>
+                                <Route path="/cart" element={
+                                    <Cart/>
+                                }/>
+                                <Route path="*" element={
+                                    <PageNotFound/>
+                                }/>
+                            </Routes>
                         </div>
-                    </SearchContext.Provider>
+                    </div>
                 </div>
             </div>
         </BrowserRouter>

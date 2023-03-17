@@ -2,20 +2,19 @@ import {useState} from 'react';
 
 import {typeNames} from '../../constants/data';
 
-const Index = ({title, imageUrl, price, sizes, types}) => {
+const ItemBlock = ({title, imageUrl, price, types}) => {
     const [activeType, setActiveType] = useState(0);
-    const [activeSize, setActiveSize] = useState(0);
-    const [watchCount, setWatchCount] = useState(0);
+    const [itemCount, setItemCount] = useState(0);
 
     return (
-        <div className="watch-block">
+        <div className="item-block">
             <img
-                className="watch-block__image"
+                className="item-block__image"
                 src={imageUrl}
-                alt="watch"
+                alt="logi"
             />
-            <h4 className="watch-block__title">{title}</h4>
-            <div className="watch-block__selector">
+            <h4 className="item-block__title">{title}</h4>
+            <div className="item-block__selector">
                 <p>Материал:</p>
                 <ul>
                     {
@@ -30,25 +29,11 @@ const Index = ({title, imageUrl, price, sizes, types}) => {
                         ))
                     }
                 </ul>
-                <p>Корпус:</p>
-                <ul>
-                    {
-                        sizes.map((size, i) => (
-                            <li
-                                key={size.id}
-                                className={activeSize === i ? 'active' : ''}
-                                onClick={() => setActiveSize(i)}
-                            >
-                                {size.item} мм
-                            </li>
-                        ))
-                    }
-                </ul>
             </div>
-            <div className="watch-block__bottom">
-                <div className="watch-block__price">от {price}.000 ₽</div>
+            <div className="item-block__bottom">
+                <div className="item-block__price">{price} ₽</div>
                 <button
-                    onClick={() => setWatchCount(prev => prev + 1)}
+                    onClick={() => setItemCount(prev => prev + 1)}
                     className="button button--outline button--add"
                 >
                     <svg
@@ -64,11 +49,11 @@ const Index = ({title, imageUrl, price, sizes, types}) => {
                         />
                     </svg>
                     <span>Добавить</span>
-                    <i>{watchCount}</i>
+                    <i>{itemCount}</i>
                 </button>
             </div>
         </div>
     );
 };
 
-export default Index;
+export default ItemBlock;
