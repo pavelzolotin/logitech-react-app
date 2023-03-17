@@ -4,6 +4,13 @@
   width: 280px;
   text-align: center;
   margin-bottom: 65px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+  transition: background-color .3s;
+
+  &:hover {
+  background-color: rgba(129, 129, 129, .2);
+  }
 
   &__image {
     width: 260px;
