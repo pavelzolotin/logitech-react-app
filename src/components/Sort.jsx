@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-import {sorts} from '../constants/data';
+import {sorts} from '../utils/constants';
 
 const Sort = ({value, orderType, onChangeSort, onChangeOrderType}) => {
     const [isVisible, setIsVisible] = useState(false);

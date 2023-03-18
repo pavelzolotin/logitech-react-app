@@ -3,8 +3,13 @@
 .header {
   display: flex;
   align-items: center;
-  min-height: 120px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #f5f5f5;
+  min-height: 100px;
   border-bottom: 1px solid $gray-line;
+  z-index: 10;
 
   .container {
     display: flex;

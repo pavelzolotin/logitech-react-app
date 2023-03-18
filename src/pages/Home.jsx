@@ -7,7 +7,7 @@ import Skeleton from '../components/ItemBlock/Skeleton';
 import Pagination from '../components/Pagination';
 
 const Home = ({searchValue, type}) => {
-    const [devices, setDevices] = useState([]);
+    const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [categoryId, setCategoryId] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
@@ -36,7 +36,7 @@ const Home = ({searchValue, type}) => {
             &${category}${search}&sortBy=${sortType.sortProperty}&order=${orderType}`)
                 .then(res => res.json())
                 .then(data => {
-                    setDevices(data);
+                    setProducts(data);
                     setIsLoading(false);
                 })
                 .catch(err => console.warn(err));
@@ -46,7 +46,7 @@ const Home = ({searchValue, type}) => {
         window.scrollTo(0, 0);
     }, [searchValue, type, currentPage, categoryId, sortType, orderType]);
 
-    const items = devices.map(item => (
+    const items = products.map(item => (
         <ItemBlock
             key={item.id}
             {...item}

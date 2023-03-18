@@ -10,7 +10,7 @@
   cursor: pointer;
 
   &:hover {
-  background-color: rgba(129, 129, 129, .2);
+    background-color: rgba(129, 129, 129, .2);
   }
 
   &__image {
@@ -27,10 +27,10 @@
 
   &__selector {
     display: flex;
-    background-color: #f0f0f0;
+    background-color: #f5f5f5;
     border-radius: 5px;
     flex-direction: column;
-    padding: 10px;
+    padding: 10px 10px 20px 10px;
 
     ul {
       display: flex;
@@ -60,11 +60,12 @@
 
   &__bottom {
     display: flex;
-    flex-direction: column;
+    display: -webkit-flex;
     align-items: center;
     justify-content: space-between;
     gap: 15px;
     margin-top: 20px;
+    padding: 0 12px;
   }
 
   &__price {
@@ -73,4 +74,28 @@
     line-height: 27px;
     letter-spacing: 0.015em;
   }
+
+  &--colors {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+  }
+
+  &--color {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #3b622e;
+    border-radius: 30px;
+
+    &:hover {
+      border: 3px solid #3b622e;
+    }
+  }
+}
+
+.active {
+  border: 3px solid #3b622e;
 }

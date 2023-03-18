@@ -21,11 +21,6 @@ export const categories = [
     }
 ];
 
-export const typeNames = [
-    'Белый',
-    'Чёрный'
-];
-
 export const sorts = [
     {
         id: 1,

@@ -1,4 +1,4 @@
-import {categories} from '../constants/data';
+import {categories} from '../utils/constants';
 
 const Categories = ({value, onClickCategory}) => {
     return (

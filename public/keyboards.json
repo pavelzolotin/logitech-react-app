@@ -1,12 +1,19 @@
 [
   {
     "id": 0,
-    "imageUrl": "../images/13.png",
+    "imageUrl": [
+      "../images/45.png",
+      "../images/46.png"
+    ],
     "title": "MX Mechanical Mini",
-    "types": [
+    "colors": [
+      {
+        "id": 0,
+        "color": "#424244"
+      },
       {
         "id": 1,
-        "item": 1
+        "color": "#e5e6e6"
       }
     ],
     "price": 11600,
@@ -15,12 +22,12 @@
   },
   {
     "id": 1,
-    "imageUrl": "../images/15.png",
+    "imageUrl": ["../images/44.png"],
     "title": "MX Mechanical",
-    "types": [
+    "colors": [
       {
         "id": 0,
-        "item": 0
+        "color": "#424244"
       }
     ],
     "price": 11800,
@@ -29,16 +36,19 @@
   },
   {
     "id": 2,
-    "imageUrl": "../images/14.png",
+    "imageUrl": [
+      "../images/24.png",
+      "../images/25.png"
+    ],
     "title": "K650",
-    "types": [
+    "colors": [
       {
         "id": 0,
-        "item": 0
+        "color": "#424244"
       },
       {
         "id": 1,
-        "item": 1
+        "color": "#e5e6e6"
       }
     ],
     "price": 4200,
@@ -47,16 +57,29 @@
   },
   {
     "id": 3,
-    "imageUrl": "../images/16.png",
+    "imageUrl": [
+      "../images/26.png",
+      "../images/27.png",
+      "../images/28.png",
+      "../images/29.png"
+    ],
     "title": "Pop Keys",
-    "types": [
+    "colors": [
       {
         "id": 0,
-        "item": 0
+        "color": "#e5e6e6"
       },
       {
         "id": 1,
-        "item": 1
+        "color": "#d06771"
+      },
+      {
+        "id": 2,
+        "color": "#f3b71b"
+      },
+      {
+        "id": 3,
+        "color": "#beb0db"
       }
     ],
     "price": 9400,
@@ -65,16 +88,19 @@
   },
   {
     "id": 4,
-    "imageUrl": "../images/17.png",
+    "imageUrl": [
+      "../images/42.png",
+      "../images/43.png"
+    ],
     "title": "MX Keys Mini",
-    "types": [
+    "colors": [
       {
         "id": 0,
-        "item": 0
+        "color": "#424244"
       },
       {
         "id": 1,
-        "item": 1
+        "color": "#e5e6e6"
       }
     ],
     "price": 8800,
@@ -83,12 +109,19 @@
   },
   {
     "id": 5,
-    "imageUrl": "../images/18.png",
+    "imageUrl": [
+      "../images/36.png",
+      "../images/37.png"
+    ],
     "title": "K480",
-    "types": [
+    "colors": [
       {
         "id": 0,
-        "item": 0
+        "color": "#424244"
+      },
+      {
+        "id": 1,
+        "color": "#e5e6e6"
       }
     ],
     "price": 4400,
@@ -97,12 +130,19 @@
   },
   {
     "id": 6,
-    "imageUrl": "../images/19.png",
+    "imageUrl": [
+      "../images/40.png",
+      "../images/41.png"
+    ],
     "title": "K380",
-    "types": [
+    "colors": [
       {
         "id": 0,
-        "item": 0
+        "color": "#424244"
+      },
+      {
+        "id": 1,
+        "color": "#e5e6e6"
       }
     ],
     "price": 4800,
@@ -111,12 +151,24 @@
   },
   {
     "id": 7,
-    "imageUrl": "../images/20.png",
+    "imageUrl": [
+      "../images/30.png",
+      "../images/31.png",
+      "../images/32.png"
+    ],
     "title": "Keys-To-Go",
-    "types": [
+    "colors": [
       {
         "id": 0,
-        "item": 0
+        "color": "#424244"
+      },
+      {
+        "id": 1,
+        "color": "#da9fa3"
+      },
+      {
+        "id": 2,
+        "color": "#858995"
       }
     ],
     "price": 6200,
@@ -125,12 +177,12 @@
   },
   {
     "id": 8,
-    "imageUrl": "../images/21.png",
+    "imageUrl": ["../images/38.png"],
     "title": "K845",
-    "types": [
+    "colors": [
       {
         "id": 0,
-        "item": 0
+        "color": "#424244"
       }
     ],
     "price": 6800,
@@ -139,12 +191,12 @@
   },
   {
     "id": 9,
-    "imageUrl": "../images/22.png",
+    "imageUrl": ["../images/39.png"],
     "title": "Craft",
-    "types": [
+    "colors": [
       {
         "id": 0,
-        "item": 0
+        "color": "#424244"
       }
     ],
     "price": 14200,
@@ -153,16 +205,12 @@
   },
   {
     "id": 10,
-    "imageUrl": "../images/23.png",
+    "imageUrl": ["../images/33.png"],
     "title": "K780",
-    "types": [
+    "colors": [
       {
         "id": 0,
-        "item": 0
-      },
-      {
-        "id": 1,
-        "item": 1
+        "color": "#424244"
       }
     ],
     "price": 6200,
@@ -171,16 +219,19 @@
   },
   {
     "id": 11,
-    "imageUrl": "../images/24.png",
+    "imageUrl": [
+      "../images/34.png",
+      "../images/35.png"
+    ],
     "title": "K400",
-    "types": [
+    "colors": [
       {
         "id": 0,
-        "item": 0
+        "color": "#424244"
       },
       {
         "id": 1,
-        "item": 1
+        "color": "#e5e6e6"
       }
     ],
     "price": 3800,

@@ -1,34 +1,32 @@
 import {useState} from 'react';
 
-import {typeNames} from '../../constants/data';
-
-const ItemBlock = ({title, imageUrl, price, types}) => {
-    const [activeType, setActiveType] = useState(0);
+const ItemBlock = ({title, imageUrl, price, colors}) => {
+    const [activeColor, setActiveColor] = useState(0);
     const [itemCount, setItemCount] = useState(0);
 
     return (
         <div className="item-block">
             <img
                 className="item-block__image"
-                src={imageUrl}
+                src={imageUrl[activeColor]}
                 alt="logi"
             />
             <h4 className="item-block__title">{title}</h4>
             <div className="item-block__selector">
-                <p>Материал:</p>
-                <ul>
+                <p>Цвет:</p>
+                <div className="item-block--colors">
                     {
-                        types.map(type => (
-                            <li
-                                key={type.id}
-                                className={activeType === type.item || types.length === 1 ? 'active' : ''}
-                                onClick={() => setActiveType(type.item)}
+                        colors.map(color => (
+                            <div
+                                key={color.id}
+                                className={`item-block--color ${activeColor === color.id || colors.length === 1 ? 'active' : ''}`}
+                                style={{backgroundColor: `${color.color}`}}
+                                onClick={() => setActiveColor(color.id)}
                             >
-                                {typeNames[type.item]}
-                            </li>
+                            </div>
                         ))
                     }
-                </ul>
+                </div>
             </div>
             <div className="item-block__bottom">
                 <div className="item-block__price">{price} ₽</div>
