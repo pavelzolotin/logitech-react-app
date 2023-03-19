@@ -1,6 +1,11 @@
 .root {
   position: relative;
+  transition: all .3s;
+  border-radius: 10px;
 
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.08) 0 .2rem 1.5rem, rgba(0, 0, 0, 0.08) 0 .2rem .2rem;
+  }
 }
 
 .icon {
@@ -9,18 +14,28 @@
   height: 22px;
   top: 10px;
   left: 12px;
-  opacity: .3;
+  opacity: .4;
 }
 
 .input {
   width: 350px;
   padding: 12px 0 10px 42px;
-  border: 1px solid rgba(0, 0, 0, .1);
+  border: none;
+  outline: 1px solid rgba(2, 2, 2, 0);
   border-radius: 10px;
   font-size: 16px;
+  transition: opacity, outline .3s;
 
   &::placeholder {
     opacity: .8;
+  }
+
+  &:focus-visible {
+    outline: 1px solid rgba(2, 2, 2, .2);
+
+    &::placeholder {
+      opacity: .4;
+    }
   }
 }
 
@@ -32,7 +47,7 @@
   height: 18px;
   opacity: .3;
   cursor: pointer;
-  transition: all .3s;
+  transition: opacity .3s;
 
   &:hover {
     opacity: .8;

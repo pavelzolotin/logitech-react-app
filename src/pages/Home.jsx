@@ -1,5 +1,7 @@
 import {useEffect, useState} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
 
+import {setCategoryId} from '../redux/slices/filterSlice';
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
 import ItemBlock from '../components/ItemBlock';
@@ -7,22 +9,16 @@ import Skeleton from '../components/ItemBlock/Skeleton';
 import Pagination from '../components/Pagination';
 
 const Home = ({searchValue, type}) => {
+    const dispatch = useDispatch();
+    const {categoryId, orderType, sort} = useSelector(state => state.filter);
+    const sortType = sort.sortProperty;
+
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [categoryId, setCategoryId] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
-    const [orderType, setOrderType] = useState('asc');
-    const [sortType, setSortType] = useState({
-        title: 'популярности',
-        sortProperty: 'rating'
-    });
 
-    const changeOrderType = () => {
-        if (orderType === 'asc') {
-            setOrderType('desc');
-        } else {
-            setOrderType('asc');
-        }
+    const onClickCategory = (id) => {
+        dispatch(setCategoryId(id));
     };
 
     useEffect(() => {
@@ -32,8 +28,7 @@ const Home = ({searchValue, type}) => {
             const category = categoryId > 0 ? `category=${categoryId}` : '';
             const search = searchValue ? `search=${searchValue}` : '';
 
-            fetch(`https://6407307d862956433e676ec6.mockapi.io/${type}?page=${currentPage}
-            &${category}${search}&sortBy=${sortType.sortProperty}&order=${orderType}`)
+            fetch(`https://6407307d862956433e676ec6.mockapi.io/${type}?page=${currentPage}&${category}${search}&sortBy=${sortType}&order=${orderType}`)
                 .then(res => res.json())
                 .then(data => {
                     setProducts(data);
@@ -62,15 +57,9 @@ const Home = ({searchValue, type}) => {
             <div className="content__top">
                 <Categories
                     value={categoryId}
-                    onClickCategory={(i) => setCategoryId(i)}
+                    onClickCategory={onClickCategory}
                 />
-                <Sort
-                    value={sortType}
-                    orderType={orderType}
-                    onChangeSort={(i) => setSortType(i)}
-                    onChangeOrderType={changeOrderType}
-
-                />
+                <Sort/>
             </div>
             <div className="content__items">
                 {
