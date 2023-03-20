@@ -23,14 +23,15 @@
     font-size: 20px;
     letter-spacing: 1px;
     margin-bottom: 20px;
+    transition: color .3s;
   }
 
   &__selector {
     display: flex;
-    background-color: #f5f5f5;
     border-radius: 5px;
     flex-direction: column;
     padding: 10px 10px 20px 10px;
+    transition: background-color .3s;
 
     ul {
       display: flex;
@@ -58,6 +59,10 @@
     }
   }
 
+  p {
+    transition: color .3s;
+  }
+
   &__bottom {
     display: flex;
     display: -webkit-flex;
@@ -73,6 +78,7 @@
     font-size: 22px;
     line-height: 27px;
     letter-spacing: 0.015em;
+    transition: color .3s;
   }
 
   &--colors {
@@ -91,6 +97,10 @@
     border-radius: 30px;
 
     &:hover {
+      border: 3px solid #3b622e;
+    }
+
+    &.active {
       border: 3px solid #3b622e;
     }
   }

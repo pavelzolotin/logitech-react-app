@@ -1,4 +1,3 @@
-import {useState} from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 import Header from './components/Header';
@@ -9,36 +8,22 @@ import PageNotFound from './pages/PageNotFound';
 import './scss/app.scss';
 
 function App() {
-    const [searchValue, setSearchValue] = useState('');
-
     return (
         <BrowserRouter>
             <div className="App">
                 <div className="wrapper">
-                    <Header
-                        searchValue={searchValue}
-                        setSearchValue={setSearchValue}
-                    />
+                    <Header/>
                     <div className="content">
                         <div className="container">
                             <Routes>
                                 <Route path="/" element={
-                                    <Home
-                                        type="mice"
-                                        searchValue={searchValue}
-                                    />
+                                    <Home type="mice"/>
                                 }/>
                                 <Route path="/mice" element={
-                                    <Home
-                                        type="mice"
-                                        searchValue={searchValue}
-                                    />
+                                    <Home type="mice"/>
                                 }/>
                                 <Route path="/keyboards" element={
-                                    <Home
-                                        type="keyboards"
-                                        searchValue={searchValue}
-                                    />
+                                    <Home type="keyboards"/>
                                 }/>
                                 <Route path="/cart" element={
                                     <Cart/>

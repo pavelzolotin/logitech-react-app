@@ -1,15 +1,23 @@
+import {useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 
 import Search from './Search';
-import Logo from '../assets/img/logo.svg';
+import ToggleTheme from '../components/ToggleTheme/index';
+import LogoDark from '../assets/img/logo.svg';
+import LogoLight from '../assets/img/logo-light.svg';
 
-const Header = ({searchValue, setSearchValue}) => {
+const Header = () => {
+    const {theme} = useSelector(state => state.mode);
+
     return (
         <div className="header">
             <div className="container">
                 <div className="header__logo">
                     <Link to="/">
-                        <img src={Logo} alt="Logo"/>
+                        <img
+                            src={theme === 'dark' ? LogoLight : LogoDark}
+                            alt="Logo"
+                        />
                     </Link>
                     <p>Почувствуйте эффективность</p>
                 </div>
@@ -21,10 +29,8 @@ const Header = ({searchValue, setSearchValue}) => {
                         <span className="header__pages--link">Клавиатуры</span>
                     </Link>
                 </div>
-                <Search
-                    searchValue={searchValue}
-                    setSearchValue={setSearchValue}
-                />
+                <Search/>
+                <ToggleTheme/>
                 <div className="header__cart">
                     <Link to="/cart" className="button button--cart">
                         <span>2.200 ₽</span>

@@ -1,25 +1,20 @@
 import {useEffect, useState} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+import {useSelector} from 'react-redux';
 
-import {setCategoryId} from '../redux/slices/filterSlice';
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
 import ItemBlock from '../components/ItemBlock';
 import Skeleton from '../components/ItemBlock/Skeleton';
 import Pagination from '../components/Pagination';
 
-const Home = ({searchValue, type}) => {
-    const dispatch = useDispatch();
+const Home = ({type}) => {
+    const {searchValue} = useSelector(state => state.search);
     const {categoryId, orderType, sort} = useSelector(state => state.filter);
     const sortType = sort.sortProperty;
 
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
-
-    const onClickCategory = (id) => {
-        dispatch(setCategoryId(id));
-    };
 
     useEffect(() => {
         const fetchItems = () => {
@@ -55,10 +50,7 @@ const Home = ({searchValue, type}) => {
     return (
         <>
             <div className="content__top">
-                <Categories
-                    value={categoryId}
-                    onClickCategory={onClickCategory}
-                />
+                <Categories/>
                 <Sort/>
             </div>
             <div className="content__items">

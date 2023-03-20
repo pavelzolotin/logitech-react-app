@@ -1,6 +1,16 @@
-import styles from './Search.module.scss';
+import {useDispatch, useSelector} from 'react-redux';
 
-const Search = ({searchValue, setSearchValue}) => {
+import styles from './Search.module.scss';
+import {setSearchValue} from '../../redux/slices/searchSlice';
+
+const Search = () => {
+    const dispatch = useDispatch();
+    const {searchValue} = useSelector(state => state.search);
+
+    const setValue = (value) => {
+        dispatch(setSearchValue(value));
+    };
+
     return (
         <div className={styles.root}>
             <svg
@@ -15,14 +25,14 @@ const Search = ({searchValue, setSearchValue}) => {
                 className={styles.input}
                 placeholder="Поиск"
                 value={searchValue}
-                onChange={(e) => setSearchValue(e.target.value)}
+                onChange={(e) => setValue(e.target.value)}
             />
             {searchValue && (
                 <svg
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                     className={styles.iconClose}
-                    onClick={() => setSearchValue('')}
+                    onClick={() => setValue('')}
                 >
                     <g>
                         <path
