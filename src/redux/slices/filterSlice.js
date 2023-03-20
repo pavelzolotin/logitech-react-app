@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 const initialState = {
-    categoryId: 0,
+    categoryId: localStorage.getItem('category') || 0,
     orderType: 'asc',
     sort: {
         title: 'популярности',

@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react';
 import {useSelector} from 'react-redux';
+import axios from 'axios';
 
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
@@ -23,10 +24,9 @@ const Home = ({type}) => {
             const category = categoryId > 0 ? `category=${categoryId}` : '';
             const search = searchValue ? `search=${searchValue}` : '';
 
-            fetch(`https://6407307d862956433e676ec6.mockapi.io/${type}?page=${currentPage}&${category}${search}&sortBy=${sortType}&order=${orderType}`)
-                .then(res => res.json())
-                .then(data => {
-                    setProducts(data);
+            axios.get(`https://6407307d862956433e676ec6.mockapi.io/${type}?page=${currentPage}&${category}${search}&sortBy=${sortType}&order=${orderType}`)
+                .then(res => {
+                    setProducts(res.data);
                     setIsLoading(false);
                 })
                 .catch(err => console.warn(err));

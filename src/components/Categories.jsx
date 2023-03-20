@@ -1,3 +1,4 @@
+import {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 
 import {setCategoryId} from '../redux/slices/filterSlice';
@@ -10,6 +11,10 @@ const Categories = () => {
     const onClickCategory = (id) => {
         dispatch(setCategoryId(id));
     };
+
+    useEffect(() => {
+        localStorage.setItem('category', categoryId);
+    }, [categoryId]);
 
     return (
         <div className="categories">

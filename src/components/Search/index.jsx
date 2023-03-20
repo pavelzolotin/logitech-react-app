@@ -1,14 +1,31 @@
-import {useDispatch, useSelector} from 'react-redux';
+import {useState, useRef, useCallback} from 'react';
+import {useDispatch} from 'react-redux';
+import debounce from 'lodash.debounce';
 
 import styles from './Search.module.scss';
 import {setSearchValue} from '../../redux/slices/searchSlice';
 
 const Search = () => {
     const dispatch = useDispatch();
-    const {searchValue} = useSelector(state => state.search);
+    const [value, setValue] = useState('');
+    const inputRef = useRef(null);
 
-    const setValue = (value) => {
-        dispatch(setSearchValue(value));
+    const updateSearchValue = useCallback(
+        debounce(str => {
+            dispatch(setSearchValue(str));
+        }, 500),
+        []
+    );
+
+    const onChangeInput = (event) => {
+        setValue(event.target.value);
+        updateSearchValue(event.target.value);
+    };
+
+    const onClickClear = () => {
+        dispatch(setSearchValue(''));
+        setValue('');
+        inputRef.current.focus();
     };
 
     return (
@@ -22,17 +39,18 @@ const Search = () => {
                 />
             </svg>
             <input
+                ref={inputRef}
                 className={styles.input}
                 placeholder="Поиск"
-                value={searchValue}
-                onChange={(e) => setValue(e.target.value)}
+                value={value}
+                onChange={onChangeInput}
             />
-            {searchValue && (
+            {value && (
                 <svg
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                     className={styles.iconClose}
-                    onClick={() => setValue('')}
+                    onClick={onClickClear}
                 >
                     <g>
                         <path

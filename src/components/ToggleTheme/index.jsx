@@ -9,6 +9,7 @@ import SunIcon from '../../assets/img/sun-warm-icon.svg';
 const ToggleTheme = () => {
     const dispatch = useDispatch();
     const {theme} = useSelector(state => state.mode);
+
     const toggleIsClicked = theme === 'light' ? true : '';
 
     const toggleTheme = () => {
