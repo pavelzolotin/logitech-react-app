@@ -1,4 +1,4 @@
-import {useState, useRef, useCallback} from 'react';
+import {useState, useRef, useMemo} from 'react';
 import {useDispatch} from 'react-redux';
 import debounce from 'lodash.debounce';
 
@@ -10,11 +10,12 @@ const Search = () => {
     const [value, setValue] = useState('');
     const inputRef = useRef(null);
 
-    const updateSearchValue = useCallback(
+    const updateSearchValue = useMemo(
+        () =>
         debounce(str => {
             dispatch(setSearchValue(str));
         }, 500),
-        []
+        [dispatch]
     );
 
     const onChangeInput = (event) => {
@@ -45,24 +46,25 @@ const Search = () => {
                 value={value}
                 onChange={onChangeInput}
             />
-            {value && (
-                <svg
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className={styles.iconClose}
-                    onClick={onClickClear}
-                >
-                    <g>
-                        <path
-                            d="M0 0h24v24H0z"
-                            fill="none"
-                        />
-                        <path
-                            d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"
-                        />
-                    </g>
-                </svg>
-            )
+            {
+                value && (
+                    <svg
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className={styles.iconClose}
+                        onClick={onClickClear}
+                    >
+                        <g>
+                            <path
+                                d="M0 0h24v24H0z"
+                                fill="none"
+                            />
+                            <path
+                                d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"
+                            />
+                        </g>
+                    </svg>
+                )
             }
         </div>
     );
