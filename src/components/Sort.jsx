@@ -1,3 +1,4 @@
+import {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 
 import {setSort, setOrderType, setIsVisible} from '../redux/slices/filterSlice';
@@ -8,7 +9,7 @@ import ArrowDark from '../assets/img/arrow.svg';
 const Sort = () => {
     const dispatch = useDispatch();
     const {theme} = useSelector(state => state.mode);
-    const {orderType, sort, isVisible} = useSelector(state => state.filter);
+    const {sort, orderType, isVisible} = useSelector(state => state.filter);
 
     const onClickSort = (obj) => {
         dispatch(setSort(obj));
@@ -22,6 +23,11 @@ const Sort = () => {
             dispatch(setOrderType('asc'));
         }
     };
+
+    useEffect(() => {
+        localStorage.setItem('sorted', JSON.stringify(sort));
+        localStorage.setItem('order', orderType);
+    }, [sort, orderType]);
 
     return (
         <div className="sort">
@@ -40,7 +46,7 @@ const Sort = () => {
                     <div className="sort__popup">
                         <ul>
                             {
-                                sorts.map(obj => (
+                                sorts.map((obj, i) => (
                                     <li
                                         key={obj.id}
                                         onClick={() => onClickSort(obj)}

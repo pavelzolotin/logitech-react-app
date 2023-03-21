@@ -1,7 +1,8 @@
 import {useEffect, useState} from 'react';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import axios from 'axios';
 
+import {setCurrentPage} from '../redux/slices/filterSlice';
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
 import ItemBlock from '../components/ItemBlock';
@@ -9,13 +10,17 @@ import Skeleton from '../components/ItemBlock/Skeleton';
 import Pagination from '../components/Pagination';
 
 const Home = ({type}) => {
+    const dispatch = useDispatch();
     const {searchValue} = useSelector(state => state.search);
-    const {categoryId, orderType, sort} = useSelector(state => state.filter);
+    const {categoryId, currentPage, orderType, sort} = useSelector(state => state.filter);
     const sortType = sort.sortProperty;
 
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [currentPage, setCurrentPage] = useState(1);
+
+    const onChangePage = (number) => {
+        dispatch(setCurrentPage(number));
+    };
 
     useEffect(() => {
         const fetchItems = () => {
@@ -61,7 +66,8 @@ const Home = ({type}) => {
                 }
             </div>
             <Pagination
-                onChangePage={number => setCurrentPage(number)}
+                value={currentPage}
+                onChangePage={number => onChangePage(number)}
             />
         </>
     );
