@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+import {useEffect, useRef} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 
 import {setSort, setOrderType, setIsVisible} from '../redux/slices/filterSlice';
@@ -10,6 +10,7 @@ const Sort = () => {
     const dispatch = useDispatch();
     const {theme} = useSelector(state => state.mode);
     const {sort, orderType, isVisible} = useSelector(state => state.filter);
+    const sortRef = useRef(null);
 
     const onClickSort = (obj) => {
         dispatch(setSort(obj));
@@ -25,12 +26,24 @@ const Sort = () => {
     };
 
     useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (!event.composedPath().includes(sortRef.current)) {
+                dispatch(setIsVisible(false));
+            }
+        };
+
+        document.body.addEventListener('click', handleClickOutside);
+
+        return () => document.body.removeEventListener('click', handleClickOutside);
+    }, [dispatch]);
+
+    useEffect(() => {
         localStorage.setItem('sorted', JSON.stringify(sort));
         localStorage.setItem('order', orderType);
     }, [sort, orderType]);
 
     return (
-        <div className="sort">
+        <div ref={sortRef} className="sort">
             <div className="sort__label">
                 <img
                     src={theme === 'dark' ? ArrowLight : ArrowDark}
