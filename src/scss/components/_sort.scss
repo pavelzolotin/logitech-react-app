@@ -17,6 +17,7 @@
     }
 
     span {
+      transition: color, border-bottom .3s;
       cursor: pointer;
     }
   }
@@ -30,6 +31,7 @@
     border-radius: 10px;
     overflow: hidden;
     padding: 10px 0;
+    z-index: 1;
 
     ul {
       overflow: hidden;

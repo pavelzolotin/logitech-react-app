@@ -8,9 +8,9 @@ import {sorts} from '../utils/constants';
 import {setCurrentPage, setFilters} from '../redux/slices/filterSlice';
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
+import Filters from '../components/Filters';
 import ItemBlock from '../components/ItemBlock';
 import Skeleton from '../components/ItemBlock/Skeleton';
-import Pagination from '../components/Pagination';
 
 const Home = ({type}) => {
     const navigate = useNavigate();
@@ -97,17 +97,18 @@ const Home = ({type}) => {
                 <Categories/>
                 <Sort/>
             </div>
-            <div className="content__items">
-                {
-                    isLoading
-                        ? skeletons
-                        : items
-                }
+            <div className="content__main">
+                <div className="content__items">
+                    {
+                        isLoading
+                            ? skeletons
+                            : items
+                    }
+                </div>
+                <div className="content__sidebar">
+                    <Filters/>
+                </div>
             </div>
-            <Pagination
-                value={currentPage}
-                onChangePage={number => onChangePage(number)}
-            />
         </>
     );
 };
