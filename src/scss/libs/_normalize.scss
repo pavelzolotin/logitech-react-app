@@ -15,6 +15,16 @@ html {
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  transition: background-color .3s;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+  background-color: #16222a;
 }
 
 a,
@@ -41,6 +51,11 @@ h2 {
 
 a {
   text-decoration: none;
+}
+
+p {
+  padding: 7px;
+  letter-spacing: .7px;
 }
 
 @mixin noselect {
