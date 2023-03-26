@@ -429,8 +429,14 @@
     background-color: #6c6c6c;
   }
 
-  .filter__sort span {
-    color: #ffffff;
+  .filter {
+    &__title {
+      color: #333333;
+    }
+
+    &__sort span {
+      color: #ffffff;
+    }
   }
 
   .item-block {
@@ -495,8 +501,14 @@
     background-color: #f5f5f5;
   }
 
-  .filter__sort span {
-    color: #333333;
+  .filter {
+    &__title {
+      color: #333333;
+    }
+
+    &__sort span {
+      color: #333333;
+    }
   }
 
   .item-block {

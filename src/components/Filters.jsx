@@ -1,22 +1,49 @@
-import {useState, useEffect} from 'react';
+import {useEffect, useState} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
 
-import {filters} from '../utils/constants';
+import {setFilterId} from '../redux/slices/filterSlice';
 
-const Filters = () => {
-    const [filterId, setFilters] = useState(localStorage.getItem('filters') || 0);
+import {filtersMice, filtersMiceArr} from '../utils/constants';
 
-    const onClickFilter = (id) => {
-        setFilters(id);
+const Filters = ({type}) => {
+    const dispatch = useDispatch();
+    const {filterId} = useSelector(state => state.filter);
+    const [checkedState, setCheckedState] = useState(() => {
+        const checkedSave = localStorage.getItem('filter');
+        if (checkedSave) {
+            return JSON.parse(checkedSave);
+        } else {
+            return new Array(filtersMiceArr.length).fill(false);
+        }
+    });
+
+    const handleOnChangeChecked = (id) => {
+        const updatedCheckedState = checkedState.map((item, i) =>
+            id === i ? !item : item
+        );
+
+        setCheckedState(updatedCheckedState);
+        dispatch(setFilterId(id));
     };
-    console.log(filterId)
+
+    console.log(filterId);
+    console.log(checkedState);
+
     useEffect(() => {
         localStorage.setItem('filters', filterId);
-    }, [filterId]);
+        localStorage.setItem('filter', JSON.stringify(checkedState));
+
+        let stateChecker = arr => arr.every(state => state === false);
+
+        if (stateChecker(checkedState)) {
+            dispatch(setFilterId(''));
+        }
+    }, [filterId, checkedState, dispatch]);
 
     return (
         <div className="filters">
             {
-                filters.map((filter, i) => (
+                filtersMice.map(filter => (
                     <div
                         key={filter.id}
                         className="filter"
@@ -25,17 +52,17 @@ const Filters = () => {
                             {filter.title}
                         </div>
                         {
-                            filter.sort.map((sort, i) => (
+                            filter.sort.map(item => (
                                 <label
-                                    key={sort.id}
+                                    key={item.id}
                                     className="filter__sort"
                                 >
                                     <input
                                         type="checkbox"
-                                        onClick={() => onClickFilter(i)}
-                                        className={filterId === i || filter === filters[filterId] ? 'active' : ''}
+                                        checked={checkedState[item.id]}
+                                        onChange={() => handleOnChangeChecked(item.id)}
                                     />
-                                    <span>{sort.name}</span>
+                                    <span>{item.name}</span>
                                 </label>
                             ))
                         }

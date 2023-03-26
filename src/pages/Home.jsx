@@ -5,7 +5,7 @@ import axios from 'axios';
 import qs from 'qs';
 
 import {sorts} from '../utils/constants';
-import {setCurrentPage, setFilters} from '../redux/slices/filterSlice';
+import {setFilters} from '../redux/slices/filterSlice';
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
 import Filters from '../components/Filters';
@@ -16,7 +16,7 @@ const Home = ({type}) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const {searchValue} = useSelector(state => state.search);
-    const {categoryId, currentPage, orderType, sort} = useSelector(state => state.filter);
+    const {categoryId, filterId, currentPage, orderType, sort} = useSelector(state => state.filter);
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const isSearch = useRef(false);
@@ -35,10 +35,6 @@ const Home = ({type}) => {
         <Skeleton key={i}/>
     ));
 
-    const onChangePage = (number) => {
-        dispatch(setCurrentPage(number));
-    };
-
     useEffect(() => {
         if (!isSearch.current) {
             const fetchItems = () => {
@@ -46,8 +42,9 @@ const Home = ({type}) => {
 
                 const category = categoryId > 0 ? `category=${categoryId}` : '';
                 const search = searchValue ? `search=${searchValue}` : '';
+                const filter = filterId >= 0 ? `filters=${filterId}` : '';
 
-                axios.get(`https://6407307d862956433e676ec6.mockapi.io/${type}?page=${currentPage}&${category}${search}&sortBy=${sortType}&order=${orderType}`)
+                axios.get(`https://6407307d862956433e676ec6.mockapi.io/${type}?page=${currentPage}&${category}&${search}&${filter}&sortBy=${sortType}&order=${orderType}`)
                     .then(res => {
                         setProducts(res.data);
                         setIsLoading(false);
@@ -60,7 +57,7 @@ const Home = ({type}) => {
 
         isSearch.current = false;
         window.scrollTo(0, 0);
-    }, [searchValue, type, currentPage, categoryId, sortType, orderType]);
+    }, [searchValue, type, currentPage, categoryId, sortType, orderType, filterId]);
 
     useEffect(() => {
         if (window.location.search) {
@@ -82,6 +79,7 @@ const Home = ({type}) => {
             const queryString = qs.stringify({
                 sortProperty: sortType,
                 categoryId,
+                filterId,
                 currentPage
             });
 
@@ -89,7 +87,7 @@ const Home = ({type}) => {
         }
 
         isMounted.current = true;
-    }, [searchValue, type, currentPage, categoryId, sortType, orderType, navigate]);
+    }, [searchValue, type, currentPage, categoryId, filterId, sortType, orderType, navigate]);
 
     return (
         <>
@@ -105,9 +103,17 @@ const Home = ({type}) => {
                             : items
                     }
                 </div>
-                <div className="content__sidebar">
-                    <Filters/>
-                </div>
+                {
+                    type === 'mice' ? (
+                        <div className="content__sidebar">
+                            <Filters
+                                type={type}
+                            />
+                        </div>
+                    ) : (
+                        ''
+                    )
+                }
             </div>
         </>
     );

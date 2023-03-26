@@ -1,14 +1,11 @@
 import {createSlice} from '@reduxjs/toolkit';
 
-const sortLocalStorage = localStorage.getItem('sorted') || {title: 'популярности', sortProperty: 'rating'};
-const categoryLocalStorage = localStorage.getItem('category') || 0;
-const orderTypeLocalStorage = localStorage.getItem('order') || 'asc';
-
 const initialState = {
-    categoryId: categoryLocalStorage,
+    categoryId: localStorage.getItem('category') || 0,
     currentPage: 1,
-    orderType: orderTypeLocalStorage,
-    sort: JSON.parse(sortLocalStorage),
+    orderType: localStorage.getItem('order') || 'asc',
+    sort: JSON.parse(localStorage.getItem('sorted') || {title: 'популярности', sortProperty: 'rating'}),
+    filterId: localStorage.getItem('filters') || 0,
     isVisible: false
 };
 
@@ -35,10 +32,13 @@ const filterSlice = createSlice({
             state.sort = action.payload.sort;
             state.currentPage = Number(action.payload.currentPage);
             state.categoryId = Number(action.payload.categoryId);
+        },
+        setFilterId(state, action) {
+            state.filterId = action.payload;
         }
     }
 });
 
-export const {setCategoryId, setSort, setOrderType, setIsVisible, setCurrentPage, setFilters} = filterSlice.actions;
+export const {setCategoryId, setSort, setOrderType, setIsVisible, setCurrentPage, setFilters, setFilterId} = filterSlice.actions;
 
 export default filterSlice.reducer;

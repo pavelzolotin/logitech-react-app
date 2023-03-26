@@ -34,13 +34,7 @@
     "price": 1180,
     "category": 2,
     "rating": 4,
-    "filter": [
-      0,
-      1,
-      2,
-      3,
-      4
-    ]
+    "filters": [0, 4, 5, 8, 11]
   },
   {
     "id": 1,
@@ -53,15 +47,9 @@
       }
     ],
     "price": 990,
-    "category": 0,
+    "category": [],
     "rating": 6,
-    "filter": [
-      0,
-      1,
-      2,
-      3,
-      4
-    ]
+    "filters": [0, 2, 4, 5, 8, 11]
   },
   {
     "id": 2,
@@ -96,7 +84,7 @@
       2
     ],
     "rating": 4,
-    "filter": []
+    "filters": [0, 2, 4, 5, 8, 11]
   },
   {
     "id": 3,
@@ -126,9 +114,9 @@
       }
     ],
     "price": 2090,
-    "category": 2,
+    "category": [1, 2],
     "rating": 2,
-    "filter": []
+    "filters": [4, 5, 8, 11]
   },
   {
     "id": 4,
@@ -155,7 +143,7 @@
     "price": 2200,
     "category": 1,
     "rating": 8,
-    "filter": []
+    "filters": [4, 5, 8, 11]
   },
   {
     "id": 5,
@@ -169,7 +157,8 @@
     ],
     "price": 3990,
     "category": 3,
-    "rating": 2
+    "rating": 2,
+    "filters": [3, 4, 6, 8, 13]
   },
   {
     "id": 6,
@@ -184,7 +173,7 @@
     "price": 4800,
     "category": 3,
     "rating": 9,
-    "filter": []
+    "filters": [3, 4, 6, 8, 13]
   },
   {
     "id": 7,
@@ -193,7 +182,7 @@
       "../images/9.png",
       "../images/10.png"
     ],
-    "title": "MX Anywhere 3",
+    "title": "MX Anywhere 3s",
     "colors": [
       {
         "id": 0,
@@ -209,13 +198,9 @@
       }
     ],
     "price": 7700,
-    "category": [
-      2,
-      3,
-      4
-    ],
+    "category": 2,
     "rating": 10,
-    "filter": []
+    "filters": [3, 6, 8, 13]
   },
   {
     "id": 8,
@@ -233,7 +218,7 @@
       5
     ],
     "rating": 10,
-    "filter": []
+    "filters": [3, 4, 7, 8, 13]
   },
   {
     "id": 9,
@@ -259,7 +244,7 @@
       4
     ],
     "rating": 7,
-    "filter": []
+    "filters": [3, 7, 10, 13]
   },
   {
     "id": 10,
@@ -278,7 +263,7 @@
       5
     ],
     "rating": 7,
-    "filter": []
+    "filters": [3, 7, 10, 13]
   },
   {
     "id": 11,
@@ -297,7 +282,7 @@
       5
     ],
     "rating": 7,
-    "filter": []
+    "filters": [3, 7, 10, 13]
   },
   {
     "id": 12,
@@ -327,7 +312,7 @@
       5
     ],
     "rating": 7,
-    "filter": []
+    "filters": [3, 7, 10, 13]
   },
   {
     "id": 13,
@@ -336,7 +321,7 @@
       "../images/60.png",
       "../images/61.png"
     ],
-    "title": "M650L",
+    "title": "M650L Signature",
     "colors": [
       {
         "id": 0,
@@ -357,7 +342,7 @@
       3
     ],
     "rating": 7,
-    "filter": []
+    "filters": [3, 4, 7, 8, 13]
   },
   {
     "id": 14,
@@ -379,7 +364,7 @@
     "price": 3800,
     "category": 2,
     "rating": 7,
-    "filter": []
+    "filters": [4, 5, 8, 12]
   },
   {
     "id": 15,
@@ -394,6 +379,6 @@
     "price": 2100,
     "category": 2,
     "rating": 7,
-    "filter": []
+    "filters": [4, 5, 8, 11]
   }
 ]

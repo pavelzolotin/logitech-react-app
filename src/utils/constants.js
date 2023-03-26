@@ -43,7 +43,7 @@ export const sorts = [
     }
 ];
 
-export const filters = [
+export const filtersMice = [
     {
         id: 0,
         title: 'Статус товара',
@@ -60,79 +60,156 @@ export const filters = [
                 id: 2,
                 name: 'Распродажа'
             }
-        ],
-        filterProperty: 'status'
+        ]
     },
     {
         id: 1,
         title: 'Тип беспроводного соединения',
         sort: [
             {
-                id: 0,
+                id: 3,
                 name: 'Bluetooth'
             },
             {
-                id: 1,
+                id: 4,
                 name: 'радиоканал'
             }
-        ],
-        filterProperty: 'connection'
+        ]
     },
     {
         id: 2,
         title: 'Разрешение сенсора',
         sort: [
             {
-                id: 0,
+                id: 5,
                 name: 'от 1000 до 2000 dpi'
             },
             {
-                id: 1,
+                id: 6,
                 name: 'от 2000 до 3000 dpi'
             },
             {
-                id: 2,
+                id: 7,
                 name: 'от 3000 до 4000 dpi'
             }
-        ],
-        filterProperty: 'resolution'
+        ]
     },
     {
         id: 3,
         title: 'Питание',
         sort: [
             {
-                id: 0,
+                id: 8,
                 name: 'AA'
             },
             {
-                id: 1,
+                id: 9,
                 name: 'AAA'
             },
             {
-                id: 2,
+                id: 10,
                 name: 'собственный'
             }
-        ],
-        filterProperty: 'power'
+        ]
     },
     {
         id: 4,
         title: 'Количество кнопок',
         sort: [
             {
-                id: 0,
+                id: 11,
                 name: '2'
             },
             {
-                id: 1,
+                id: 12,
                 name: '3'
             },
             {
-                id: 2,
+                id: 13,
                 name: '4+'
             }
-        ],
-        filterProperty: 'buttons-count'
+        ]
     }
 ];
+
+export const filtersKeyboards = [
+    {
+        id: 0,
+        title: 'Статус товара',
+        sort: [
+            {
+                id: 0,
+                name: 'Товары по акции'
+            },
+            {
+                id: 1,
+                name: 'Новинка'
+            },
+            {
+                id: 2,
+                name: 'Распродажа'
+            }
+        ]
+    },
+    {
+        id: 1,
+        title: 'Тип беспроводного соединения',
+        sort: [
+            {
+                id: 3,
+                name: 'Bluetooth'
+            },
+            {
+                id: 4,
+                name: 'радиоканал'
+            }
+        ]
+    },
+    {
+        id: 2,
+        title: 'Особенности',
+        sort: [
+            {
+                id: 5,
+                name: 'Механическая'
+            },
+            {
+                id: 6,
+                name: 'Slim-дизайн'
+            },
+            {
+                id: 7,
+                name: 'Без цифрового блока'
+            }
+        ]
+    },
+    {
+        id: 3,
+        title: 'Подсветка',
+        sort: [
+            {
+                id: 8,
+                name: 'есть'
+            },
+            {
+                id: 9,
+                name: 'нет'
+            }
+        ]
+    }
+];
+
+export const filtersMiceArr = [];
+export const filtersKeyboardsArr = [];
+
+const filterSort = (filters, arr) => {
+    const filtersSorted = filters.map(filter => (
+        filter.sort.map(item => (
+            arr.push(item)
+        ))
+    ));
+    return filtersSorted;
+};
+
+filterSort(filtersMice, filtersMiceArr);
+filterSort(filtersKeyboards, filtersKeyboardsArr);
