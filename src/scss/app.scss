@@ -436,6 +436,10 @@
 
     &__sort span {
       color: #ffffff;
+
+      &:hover {
+        color: #b7b5b5;
+      }
     }
   }
 
@@ -508,6 +512,10 @@
 
     &__sort span {
       color: #333333;
+
+      &:hover {
+        color: #ada9a9;
+      }
     }
   }
 

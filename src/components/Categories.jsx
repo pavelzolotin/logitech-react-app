@@ -2,11 +2,12 @@ import {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 
 import {setCategoryId} from '../redux/slices/filterSlice';
-import {categories} from '../utils/constants';
+import {categoriesMice, categoriesKeyboards} from '../utils/constants';
 
-const Categories = () => {
+const Categories = ({type}) => {
     const dispatch = useDispatch();
     const {categoryId} = useSelector(state => state.filter);
+    const categoriesType = type === 'mice' ? categoriesMice : categoriesKeyboards;
 
     const onClickCategory = (id) => {
         dispatch(setCategoryId(id));
@@ -20,11 +21,11 @@ const Categories = () => {
         <div className="categories">
             <ul>
                 {
-                    categories.map((category, i) => (
+                    categoriesType.map((category, i) => (
                         <li
                             key={category.id}
                             onClick={() => onClickCategory(i)}
-                            className={categoryId === i || category === categories[categoryId] ? 'active' : ''}
+                            className={categoryId === i || category === categoriesType[categoryId] ? 'active' : ''}
                         >
                             {category.title}
                         </li>

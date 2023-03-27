@@ -3,7 +3,7 @@ import {useSelector, useDispatch} from 'react-redux';
 
 import {setFilterId} from '../redux/slices/filterSlice';
 
-import {filtersMice, filtersMiceArr} from '../utils/constants';
+import {filtersKeyboards, filtersKeyboardsArr, filtersMice, filtersMiceArr} from '../utils/constants';
 
 const Filters = ({type}) => {
     const dispatch = useDispatch();
@@ -13,9 +13,12 @@ const Filters = ({type}) => {
         if (checkedSave) {
             return JSON.parse(checkedSave);
         } else {
-            return new Array(filtersMiceArr.length).fill(false);
+            return new Array(checkedStateArr).fill(false);
         }
     });
+
+    const checkedStateArr = type === 'mice' ? filtersMiceArr.length : filtersKeyboardsArr.length;
+    const devicesType = type === 'mice' ? filtersMice : filtersKeyboards;
 
     const handleOnChangeChecked = (id) => {
         const updatedCheckedState = checkedState.map((item, i) =>
@@ -25,9 +28,6 @@ const Filters = ({type}) => {
         setCheckedState(updatedCheckedState);
         dispatch(setFilterId(id));
     };
-
-    console.log(filterId);
-    console.log(checkedState);
 
     useEffect(() => {
         localStorage.setItem('filters', filterId);
@@ -43,7 +43,7 @@ const Filters = ({type}) => {
     return (
         <div className="filters">
             {
-                filtersMice.map(filter => (
+                devicesType.map(filter => (
                     <div
                         key={filter.id}
                         className="filter"
@@ -59,7 +59,7 @@ const Filters = ({type}) => {
                                 >
                                     <input
                                         type="checkbox"
-                                        checked={checkedState[item.id]}
+                                        checked={filterId === '' ? checkedState[item.id] = false : checkedState[item.id]}
                                         onChange={() => handleOnChangeChecked(item.id)}
                                     />
                                     <span>{item.name}</span>

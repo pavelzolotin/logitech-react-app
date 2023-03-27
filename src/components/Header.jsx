@@ -1,19 +1,26 @@
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import {Link} from 'react-router-dom';
 
+import {setCategoryId, setFilterId} from '../redux/slices/filterSlice';
 import Search from './Search';
-import ToggleTheme from '../components/ToggleTheme/index';
+import ToggleTheme from '../components/ToggleTheme';
 import LogoDark from '../assets/img/logo.svg';
 import LogoLight from '../assets/img/logo-light.svg';
 
 const Header = () => {
+    const dispatch = useDispatch();
     const {theme} = useSelector(state => state.mode);
+
+    const categoryReset = () => {
+        dispatch(setCategoryId(0));
+        dispatch(setFilterId(''));
+    };
 
     return (
         <div className="header">
             <div className="container">
                 <div className="header__logo">
-                    <Link to="/">
+                    <Link to="/" onClick={categoryReset}>
                         <img
                             src={theme === 'dark' ? LogoLight : LogoDark}
                             alt="Logo"
@@ -22,10 +29,10 @@ const Header = () => {
                     <p>Почувствуйте эффективность</p>
                 </div>
                 <div className="header__pages">
-                    <Link to="/mice">
+                    <Link to="/mice" onClick={categoryReset}>
                         <span className="header__pages--link">Мыши</span>
                     </Link>
-                    <Link to="/keyboards">
+                    <Link to="/keyboards" onClick={categoryReset}>
                         <span className="header__pages--link">Клавиатуры</span>
                     </Link>
                 </div>

@@ -1,4 +1,4 @@
-export const categories = [
+export const categoriesMice = [
     {
         id: 0,
         title: 'Все'
@@ -22,6 +22,29 @@ export const categories = [
     {
         id: 5,
         title: 'Ergo-серия'
+    }
+];
+
+export const categoriesKeyboards = [
+    {
+        id: 0,
+        title: 'Все'
+    },
+    {
+        id: 1,
+        title: 'Компактные'
+    },
+    {
+        id: 2,
+        title: 'Механические'
+    },
+    {
+        id: 3,
+        title: 'Мульти-девайс'
+    },
+    {
+        id: 4,
+        title: 'MX-серия'
     }
 ];
 
@@ -96,7 +119,7 @@ export const filtersMice = [
     },
     {
         id: 3,
-        title: 'Питание',
+        title: 'Аккумуляторы',
         sort: [
             {
                 id: 8,
@@ -108,7 +131,7 @@ export const filtersMice = [
             },
             {
                 id: 10,
-                name: 'собственный'
+                name: 'собственные'
             }
         ]
     },
@@ -185,14 +208,32 @@ export const filtersKeyboards = [
     },
     {
         id: 3,
-        title: 'Подсветка',
+        title: 'Аккумуляторы',
         sort: [
             {
                 id: 8,
-                name: 'есть'
+                name: 'AA'
             },
             {
                 id: 9,
+                name: 'AAA'
+            },
+            {
+                id: 10,
+                name: 'собственные'
+            }
+        ]
+    },
+    {
+        id: 4,
+        title: 'Подсветка',
+        sort: [
+            {
+                id: 11,
+                name: 'есть'
+            },
+            {
+                id: 12,
                 name: 'нет'
             }
         ]

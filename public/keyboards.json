@@ -17,8 +17,9 @@
       }
     ],
     "price": 11600,
-    "category": [2, 4],
-    "rating": 4
+    "category": [1, 2, 4],
+    "rating": 4,
+    "filters": [1, 3, 5, 7, 9, 11]
   },
   {
     "id": 1,
@@ -31,8 +32,9 @@
       }
     ],
     "price": 11800,
-    "category": 4,
-    "rating": 6
+    "category": [2, 4],
+    "rating": 6,
+    "filters": [4, 9, 12]
   },
   {
     "id": 2,
@@ -52,8 +54,9 @@
       }
     ],
     "price": 4200,
-    "category": 0,
-    "rating": 4
+    "category": [],
+    "rating": 4,
+    "filters": [3, 5, 7, 9, 11]
   },
   {
     "id": 3,
@@ -83,8 +86,9 @@
       }
     ],
     "price": 9400,
-    "category": 0,
-    "rating": 2
+    "category": [1, 2],
+    "rating": 2,
+    "filters": [1, 3, 7, 9, 11]
   },
   {
     "id": 4,
@@ -104,8 +108,9 @@
       }
     ],
     "price": 8800,
-    "category": [2, 4],
-    "rating": 8
+    "category": [1, 4],
+    "rating": 8,
+    "filters": [2, 3, 5, 6, 9, 12]
   },
   {
     "id": 5,
@@ -125,8 +130,9 @@
       }
     ],
     "price": 4400,
-    "category": [1, 2, 3],
-    "rating": 2
+    "category": [1, 3],
+    "rating": 2,
+    "filters": [3, 6, 7, 9, 12]
   },
   {
     "id": 6,
@@ -146,8 +152,9 @@
       }
     ],
     "price": 4800,
-    "category": [1, 2, 3],
-    "rating": 9
+    "category": [1, 3],
+    "rating": 9,
+    "filters": [3, 6, 7, 9, 12]
   },
   {
     "id": 7,
@@ -172,8 +179,9 @@
       }
     ],
     "price": 6200,
-    "category": [1, 2, 3],
-    "rating": 10
+    "category": 1,
+    "rating": 10,
+    "filters": [1, 3, 6, 7, 9, 12]
   },
   {
     "id": 8,
@@ -186,8 +194,9 @@
       }
     ],
     "price": 6800,
-    "category": 0,
-    "rating": 10
+    "category": [],
+    "rating": 10,
+    "filters": [4, 5, 12]
   },
   {
     "id": 9,
@@ -200,8 +209,9 @@
       }
     ],
     "price": 14200,
-    "category": 0,
-    "rating": 7
+    "category": 3,
+    "rating": 7,
+    "filters": [4, 9, 10, 12]
   },
   {
     "id": 10,
@@ -214,8 +224,9 @@
       }
     ],
     "price": 6200,
-    "category": 0,
-    "rating": 7
+    "category": [],
+    "rating": 7,
+    "filters": [1, 4, 9, 12]
   },
   {
     "id": 11,
@@ -235,7 +246,8 @@
       }
     ],
     "price": 3800,
-    "category": [1, 2, 3],
-    "rating": 7
+    "category": 3,
+    "rating": 7,
+    "filters": [3, 6, 9, 12]
   }
 ]

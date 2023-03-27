@@ -92,7 +92,9 @@ const Home = ({type}) => {
     return (
         <>
             <div className="content__top">
-                <Categories/>
+                <Categories
+                    type={type}
+                />
                 <Sort/>
             </div>
             <div className="content__main">
@@ -103,17 +105,12 @@ const Home = ({type}) => {
                             : items
                     }
                 </div>
-                {
-                    type === 'mice' ? (
-                        <div className="content__sidebar">
-                            <Filters
-                                type={type}
-                            />
-                        </div>
-                    ) : (
-                        ''
-                    )
-                }
+                <div className="content__sidebar">
+                    <Filters
+                        type={type}
+                    />
+                </div>
+
             </div>
         </>
     );
