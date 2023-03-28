@@ -1,7 +1,7 @@
-import {useEffect, useRef} from 'react';
+import {useState, useEffect, useRef} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 
-import {setSort, setOrderType, setIsVisible} from '../redux/slices/filterSlice';
+import {setSort, setOrderType} from '../redux/slices/filterSlice';
 import {sorts} from '../utils/constants';
 import ArrowLight from '../assets/img/arrow-light.svg';
 import ArrowDark from '../assets/img/arrow.svg';
@@ -9,12 +9,13 @@ import ArrowDark from '../assets/img/arrow.svg';
 const Sort = () => {
     const dispatch = useDispatch();
     const {theme} = useSelector(state => state.mode);
-    const {sort, orderType, isVisible} = useSelector(state => state.filter);
+    const {sort, orderType} = useSelector(state => state.filter);
+    const [isVisible, setIsVisible] = useState(false);
     const sortRef = useRef(null);
 
     const onClickSort = (obj) => {
         dispatch(setSort(obj));
-        dispatch(setIsVisible(false));
+        setIsVisible(false);
     };
 
     const changeOrderType = () => {
@@ -28,14 +29,13 @@ const Sort = () => {
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (!event.composedPath().includes(sortRef.current)) {
-                dispatch(setIsVisible(false));
+                setIsVisible(false);
             }
         };
 
         document.body.addEventListener('click', handleClickOutside);
-
         return () => document.body.removeEventListener('click', handleClickOutside);
-    }, [dispatch]);
+    }, []);
 
     useEffect(() => {
         localStorage.setItem('sorted', JSON.stringify(sort));
@@ -52,7 +52,7 @@ const Sort = () => {
                     onClick={changeOrderType}
                 />
                 <b>Сортировка по:</b>
-                <span onClick={() => dispatch(setIsVisible(true))}>{sort.title}</span>
+                <span onClick={() => setIsVisible(true)}>{sort.title}</span>
             </div>
             {
                 isVisible && (

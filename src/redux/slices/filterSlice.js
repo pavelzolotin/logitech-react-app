@@ -7,8 +7,7 @@ const initialState = {
     currentPage: 1,
     orderType: localStorage.getItem('order') || 'asc',
     sort: sortStorage ? JSON.parse(sortStorage) : {title: 'популярности', sortProperty: 'rating'},
-    filterId: localStorage.getItem('filters'),
-    isVisible: false
+    filterId: localStorage.getItem('filters')
 };
 
 const filterSlice = createSlice({
@@ -24,9 +23,6 @@ const filterSlice = createSlice({
         setOrderType(state, action) {
             state.orderType = action.payload;
         },
-        setIsVisible(state, action) {
-            state.isVisible = action.payload;
-        },
         setCurrentPage(state, action) {
             state.currentPage = action.payload;
         },
@@ -41,6 +37,6 @@ const filterSlice = createSlice({
     }
 });
 
-export const {setCategoryId, setSort, setOrderType, setIsVisible, setCurrentPage, setFilters, setFilterId} = filterSlice.actions;
+export const {setCategoryId, setSort, setOrderType, setCurrentPage, setFilters, setFilterId} = filterSlice.actions;
 
 export default filterSlice.reducer;
