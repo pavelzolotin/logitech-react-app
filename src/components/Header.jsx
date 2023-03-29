@@ -1,15 +1,18 @@
 import {useSelector, useDispatch} from 'react-redux';
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 
 import {setCategoryId, setFilterId} from '../redux/slices/filterSlice';
 import Search from './Search';
-import ToggleTheme from '../components/ToggleTheme';
+import ToggleTheme from './ToggleTheme';
 import LogoDark from '../assets/img/logo.svg';
 import LogoLight from '../assets/img/logo-light.svg';
 
 const Header = () => {
     const dispatch = useDispatch();
     const {theme} = useSelector(state => state.mode);
+    const {items, totalPrice} = useSelector(state => state.cart);
+
+    const itemsTotalCount = items.reduce((sum, item) => sum + item.count, 0);
 
     const categoryReset = () => {
         dispatch(setCategoryId(0));
@@ -20,27 +23,38 @@ const Header = () => {
         <div className="header">
             <div className="container">
                 <div className="header__logo">
-                    <Link to="/" onClick={categoryReset}>
+                    <NavLink
+                        to="/"
+                        onClick={categoryReset}
+                    >
                         <img
                             src={theme === 'dark' ? LogoLight : LogoDark}
                             alt="Logo"
                         />
-                    </Link>
+                    </NavLink>
                     <p>Почувствуйте эффективность</p>
                 </div>
                 <div className="header__pages">
-                    <Link to="/mice" onClick={categoryReset}>
-                        <span className="header__pages--link">Мыши</span>
-                    </Link>
-                    <Link to="/keyboards" onClick={categoryReset}>
-                        <span className="header__pages--link">Клавиатуры</span>
-                    </Link>
+                    <NavLink
+                        to="/"
+                        className="header__pages--link"
+                        onClick={categoryReset}
+                    >
+                        Мыши
+                    </NavLink>
+                    <NavLink
+                        to="/keyboards"
+                        className="header__pages--link"
+                        onClick={categoryReset}
+                    >
+                        Клавиатуры
+                    </NavLink>
                 </div>
-                <Search/>
-                <ToggleTheme/>
-                <div className="header__cart">
-                    <Link to="/cart" className="button button--cart">
-                        <span>2.200 ₽</span>
+                <Search />
+                <ToggleTheme />
+                <button className="button header__cart">
+                    <Link to="/cart" className="button--cart">
+                        <span>{totalPrice} ₽</span>
                         <div className="button__delimiter"></div>
                         <svg
                             width="18"
@@ -71,9 +85,9 @@ const Header = () => {
                                 strokeLinejoin="round"
                             />
                         </svg>
-                        <span>1</span>
+                        <span>{itemsTotalCount}</span>
                     </Link>
-                </div>
+                </button>
             </div>
         </div>
     );

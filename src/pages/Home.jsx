@@ -16,7 +16,7 @@ const Home = ({type}) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const {searchValue} = useSelector(state => state.search);
-    const {categoryId, filterId, currentPage, orderType, sort} = useSelector(state => state.filter);
+    const {categoryId, filterId, currentPage, orderType, sort} = useSelector(state => state.filters);
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const isSearch = useRef(false);
@@ -32,7 +32,7 @@ const Home = ({type}) => {
     ));
 
     const skeletons = [...Array(8)].map((_, i) => (
-        <Skeleton key={i}/>
+        <Skeleton key={i} />
     ));
 
     useEffect(() => {
@@ -95,7 +95,7 @@ const Home = ({type}) => {
                 <Categories
                     type={type}
                 />
-                <Sort/>
+                <Sort />
             </div>
             <div className="content__main">
                 <div className="content__items">

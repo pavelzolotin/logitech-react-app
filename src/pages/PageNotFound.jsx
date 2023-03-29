@@ -2,8 +2,8 @@ import NotFound from '../components/NotFoundBlock';
 
 const PageNotFound = () => {
     return (
-        <NotFound/>
-    )
+        <NotFound />
+    );
 };
 
 export default PageNotFound;

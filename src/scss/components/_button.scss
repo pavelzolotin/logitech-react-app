@@ -14,7 +14,7 @@
 
   &,
   span {
-    color: #fff;
+    color: $white;
   }
 
   i,
@@ -45,17 +45,14 @@
   }
 
   &--black {
-    background-color: $black;
-
     &:hover,
     &:active {
-      background-color: lighten($color: $black, $amount: 10);
+      background-color: darken($grey, 8%);
     }
   }
 
   &--outline {
     background-color: #fff;
-    border-color: $grey;
 
     &,
     span {
@@ -78,7 +75,7 @@
 
       svg {
         path {
-          fill: #fff;
+          fill: #c2c2c2;
         }
       }
     }
@@ -136,7 +133,6 @@
     display: flex;
     align-items: center;
     line-height: 23px;
-    padding: 12px 25px;
 
     svg {
       margin-right: 8px;

@@ -12,9 +12,9 @@ const Search = () => {
 
     const updateSearchValue = useMemo(
         () =>
-        debounce(str => {
-            dispatch(setSearchValue(str));
-        }, 500),
+            debounce(str => {
+                dispatch(setSearchValue(str));
+            }, 500),
         [dispatch]
     );
 

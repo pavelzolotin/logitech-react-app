@@ -6,8 +6,11 @@ import {setFilterId} from '../redux/slices/filterSlice';
 import {filtersKeyboards, filtersKeyboardsArr, filtersMice, filtersMiceArr} from '../utils/constants';
 
 const Filters = ({type}) => {
+    const checkedStateArr = type === 'mice' ? filtersMiceArr.length : filtersKeyboardsArr.length;
+    const devicesType = type === 'mice' ? filtersMice : filtersKeyboards;
+
     const dispatch = useDispatch();
-    const {filterId} = useSelector(state => state.filter);
+    const {filterId} = useSelector(state => state.filters);
     const [checkedState, setCheckedState] = useState(() => {
         const checkedSave = localStorage.getItem('filter');
         if (checkedSave) {
@@ -16,9 +19,6 @@ const Filters = ({type}) => {
             return new Array(checkedStateArr).fill(false);
         }
     });
-
-    const checkedStateArr = type === 'mice' ? filtersMiceArr.length : filtersKeyboardsArr.length;
-    const devicesType = type === 'mice' ? filtersMice : filtersKeyboards;
 
     const handleOnChangeChecked = (id) => {
         const updatedCheckedState = checkedState.map((item, i) =>

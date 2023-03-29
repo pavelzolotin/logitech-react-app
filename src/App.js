@@ -12,25 +12,22 @@ function App() {
         <BrowserRouter>
             <div className="App">
                 <div className="wrapper">
-                    <Header/>
+                    <Header />
                     <div className="content">
                         <div className="container">
                             <Routes>
                                 <Route path="/" element={
-                                    <Home type="mice"/>
-                                }/>
-                                <Route path="/mice" element={
-                                    <Home type="mice"/>
-                                }/>
+                                    <Home type="mice" />
+                                } />
                                 <Route path="/keyboards" element={
-                                    <Home type="keyboards"/>
-                                }/>
+                                    <Home type="keyboards" />
+                                } />
                                 <Route path="/cart" element={
-                                    <Cart/>
-                                }/>
+                                    <Cart />
+                                } />
                                 <Route path="*" element={
-                                    <PageNotFound/>
-                                }/>
+                                    <PageNotFound />
+                                } />
                             </Routes>
                         </div>
                     </div>

@@ -47,7 +47,7 @@ const ToggleTheme = () => {
                     src={SunIcon}
                     alt=""
                 />
-                <span className={styles.toggle}/>
+                <span className={styles.toggle} />
             </label>
         </>
     );

@@ -9,7 +9,7 @@ import ArrowDark from '../assets/img/arrow.svg';
 const Sort = () => {
     const dispatch = useDispatch();
     const {theme} = useSelector(state => state.mode);
-    const {sort, orderType} = useSelector(state => state.filter);
+    const {sort, orderType} = useSelector(state => state.filters);
     const [isVisible, setIsVisible] = useState(false);
     const sortRef = useRef(null);
 
@@ -52,7 +52,7 @@ const Sort = () => {
                     onClick={changeOrderType}
                 />
                 <b>Сортировка по:</b>
-                <span onClick={() => setIsVisible(true)}>{sort.title}</span>
+                <span onClick={() => setIsVisible(!isVisible)}>{sort.title}</span>
             </div>
             {
                 isVisible && (

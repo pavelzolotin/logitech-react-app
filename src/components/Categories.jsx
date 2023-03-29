@@ -6,7 +6,7 @@ import {categoriesMice, categoriesKeyboards} from '../utils/constants';
 
 const Categories = ({type}) => {
     const dispatch = useDispatch();
-    const {categoryId} = useSelector(state => state.filter);
+    const {categoryId} = useSelector(state => state.filters);
     const categoriesType = type === 'mice' ? categoriesMice : categoriesKeyboards;
 
     const onClickCategory = (id) => {
