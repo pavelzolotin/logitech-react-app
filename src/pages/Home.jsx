@@ -1,10 +1,10 @@
-import {useEffect, useState, useRef} from 'react';
+import {useEffect, useRef} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
-import axios from 'axios';
 import qs from 'qs';
 
 import {sorts} from '../utils/constants';
+import {fetchProducts} from '../redux/slices/productSlice';
 import {setFilters} from '../redux/slices/filterSlice';
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
@@ -15,10 +15,9 @@ import Skeleton from '../components/ItemBlock/Skeleton';
 const Home = ({type}) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const {products, status} = useSelector(state => state.products);
     const {searchValue} = useSelector(state => state.search);
     const {categoryId, filterId, currentPage, orderType, sort} = useSelector(state => state.filters);
-    const [products, setProducts] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
     const isSearch = useRef(false);
     const isMounted = useRef(false);
 
@@ -37,27 +36,27 @@ const Home = ({type}) => {
 
     useEffect(() => {
         if (!isSearch.current) {
-            const fetchItems = () => {
-                setIsLoading(true);
-
+            const getItems = async () => {
                 const category = categoryId > 0 ? `category=${categoryId}` : '';
                 const search = searchValue ? `search=${searchValue}` : '';
                 const filter = filterId >= 0 ? `filters=${filterId}` : '';
 
-                axios.get(`https://6407307d862956433e676ec6.mockapi.io/${type}?page=${currentPage}&${category}&${search}&${filter}&sortBy=${sortType}&order=${orderType}`)
-                    .then(res => {
-                        setProducts(res.data);
-                        setIsLoading(false);
-                    })
-                    .catch(err => console.warn(err));
+                dispatch(fetchProducts({
+                    type,
+                    currentPage,
+                    category,
+                    search,
+                    filter,
+                    sortType,
+                    orderType
+                }));
             };
-
-            fetchItems();
+            getItems();
         }
 
         isSearch.current = false;
         window.scrollTo(0, 0);
-    }, [searchValue, type, currentPage, categoryId, sortType, orderType, filterId]);
+    }, [dispatch, searchValue, type, currentPage, categoryId, sortType, orderType, filterId]);
 
     useEffect(() => {
         if (window.location.search) {
@@ -98,19 +97,30 @@ const Home = ({type}) => {
                 <Sort />
             </div>
             <div className="content__main">
-                <div className="content__items">
-                    {
-                        isLoading
-                            ? skeletons
-                            : items
-                    }
-                </div>
-                <div className="content__sidebar">
-                    <Filters
-                        type={type}
-                    />
-                </div>
-
+                {
+                    status === 'error'
+                        ? (
+                            <div className="content__error">
+                                <h2>Произошла ошибка.</h2>
+                                <p>К сожалению, не удалось получить товары.</p>
+                            </div>
+                        ) : (
+                            <>
+                                <div className="content__items">
+                                    {
+                                        status === 'loading'
+                                            ? skeletons
+                                            : items
+                                    }
+                                </div>
+                                <div className="content__sidebar">
+                                    <Filters
+                                        type={type}
+                                    />
+                                </div>
+                            </>
+                        )
+                }
             </div>
         </>
     );
