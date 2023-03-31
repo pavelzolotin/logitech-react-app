@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import {Link} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 
 import {addItem, cartItemSelectorById} from '../../redux/slices/cartSlice';
@@ -23,12 +24,16 @@ const ItemBlock = ({id, title, imageUrl, price, colors}) => {
 
     return (
         <div className="item-block">
-            <img
-                className="item-block__image"
-                src={imageUrl[activeColor]}
-                alt="item"
-            />
-            <h4 className="item-block__title">{title}</h4>
+            <>
+                <Link to={`/items/${id}`}>
+                    <img
+                        className="item-block__image"
+                        src={imageUrl[activeColor]}
+                        alt="item"
+                    />
+                    <h4 className="item-block__title">{title}</h4>
+                </Link>
+            </>
             <div className="item-block__selector">
                 <p>Цвет:</p>
                 <div className="item-block--colors">

@@ -1,6 +1,6 @@
 [
   {
-    "id": 0,
+    "id": "0",
     "imageUrl": [
       "../images/45.png",
       "../images/46.png"
@@ -22,7 +22,7 @@
     "filters": [1, 3, 5, 7, 9, 11]
   },
   {
-    "id": 1,
+    "id": "1",
     "imageUrl": ["../images/44.png"],
     "title": "MX Mechanical",
     "colors": [
@@ -37,7 +37,7 @@
     "filters": [4, 5, 9, 12]
   },
   {
-    "id": 2,
+    "id": "2",
     "imageUrl": [
       "../images/24.png",
       "../images/25.png"
@@ -59,7 +59,7 @@
     "filters": [3, 5, 7, 9, 11]
   },
   {
-    "id": 3,
+    "id": "3",
     "imageUrl": [
       "../images/26.png",
       "../images/27.png",
@@ -91,7 +91,7 @@
     "filters": [1, 3, 7, 9, 11]
   },
   {
-    "id": 4,
+    "id": "4",
     "imageUrl": [
       "../images/42.png",
       "../images/43.png"
@@ -113,7 +113,7 @@
     "filters": [2, 3, 5, 6, 9, 12]
   },
   {
-    "id": 5,
+    "id": "5",
     "imageUrl": [
       "../images/36.png",
       "../images/37.png"
@@ -135,7 +135,7 @@
     "filters": [3, 6, 7, 9, 12]
   },
   {
-    "id": 6,
+    "id": "6",
     "imageUrl": [
       "../images/40.png",
       "../images/41.png"
@@ -157,7 +157,7 @@
     "filters": [3, 6, 7, 9, 12]
   },
   {
-    "id": 7,
+    "id": "7",
     "imageUrl": [
       "../images/30.png",
       "../images/31.png",
@@ -184,7 +184,7 @@
     "filters": [1, 3, 6, 7, 9, 12]
   },
   {
-    "id": 8,
+    "id": "8",
     "imageUrl": ["../images/38.png"],
     "title": "K845",
     "colors": [
@@ -199,7 +199,7 @@
     "filters": [4, 5, 12]
   },
   {
-    "id": 9,
+    "id": "9",
     "imageUrl": ["../images/39.png"],
     "title": "Craft",
     "colors": [
@@ -214,7 +214,7 @@
     "filters": [4, 9, 10, 12]
   },
   {
-    "id": 10,
+    "id": "10",
     "imageUrl": ["../images/33.png"],
     "title": "K780",
     "colors": [
@@ -229,7 +229,7 @@
     "filters": [1, 4, 9, 12]
   },
   {
-    "id": 11,
+    "id": "11",
     "imageUrl": [
       "../images/34.png",
       "../images/35.png"

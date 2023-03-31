@@ -13,6 +13,7 @@ export const fetchProducts = createAsyncThunk('item/fetchProducts', async (param
 
 const initialState = {
     products: [],
+    type: 'mice',
     status: 'loading'
 };
 
@@ -20,6 +21,9 @@ const productSlice = createSlice({
     name: 'products',
     initialState,
     reducers: {
+        setType(state, action) {
+            state.type = action.payload;
+        },
         setProducts(state, action) {
             state.products = action.payload;
         }
@@ -43,6 +47,6 @@ const productSlice = createSlice({
 
 export const productSelector = (state) => state.products;
 
-export const {setProducts} = productSlice.actions;
+export const {setType, setProducts} = productSlice.actions;
 
 export default productSlice.reducer;

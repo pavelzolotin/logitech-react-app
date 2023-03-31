@@ -12,10 +12,10 @@ import Filters from '../components/Filters';
 import ItemBlock from '../components/ItemBlock';
 import Skeleton from '../components/ItemBlock/Skeleton';
 
-const Home = ({type}) => {
+const Home = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const {products, status} = useSelector(productSelector);
+    const {products, type, status} = useSelector(productSelector);
     const {searchValue, categoryId, filterId, currentPage, orderType, sort} = useSelector(filterSelector);
     const isSearch = useRef(false);
     const isMounted = useRef(false);
@@ -25,6 +25,7 @@ const Home = ({type}) => {
     const items = products.map(item => (
         <ItemBlock
             key={item.id}
+            type={type}
             {...item}
         />
     ));

@@ -59,13 +59,31 @@
 
   &__pages {
     display: flex;
-    display:-webkit-flex;
+    display: -webkit-flex;
     gap: 30px;
     -webkit-column-gap: 30px;
 
     &--link {
       font-size: 18px;
       transition: color .3s;
+    }
+  }
+
+  &__search {
+    &--wrapper {
+      width: 350px;
+      height: 100%;
+    }
+  }
+
+  &__cart {
+    background-color: transparent;
+    outline: none;
+    border: none;
+
+    &--wrapper {
+      width: 200px;
+      height: 100%;
     }
   }
 }
