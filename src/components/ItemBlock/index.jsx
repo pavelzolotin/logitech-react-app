@@ -1,11 +1,11 @@
 import {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
-import {addItem} from '../../redux/slices/cartSlice';
+import {addItem, cartItemSelectorById} from '../../redux/slices/cartSlice';
 
 const ItemBlock = ({id, title, imageUrl, price, colors}) => {
     const dispatch = useDispatch();
-    const cartItem = useSelector(state => state.cart.items.find(obj => obj.id === id));
+    const cartItem = useSelector(cartItemSelectorById(id));
     const [activeColor, setActiveColor] = useState(0);
     const addedCount = cartItem ? cartItem.count : 0;
 

@@ -5,7 +5,7 @@ const initialState = {
 };
 
 const themeSlice = createSlice({
-    name: 'mode',
+    name: 'theme',
     initialState,
     reducers: {
         setTheme(state, action) {
@@ -13,6 +13,8 @@ const themeSlice = createSlice({
         }
     }
 });
+
+export const themeSelector = (state) => state.theme;
 
 export const {setTheme} = themeSlice.actions;
 

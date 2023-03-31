@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 
-import {setFilterId} from '../redux/slices/filterSlice';
+import {filterSelector, setFilterId} from '../redux/slices/filterSlice';
 
 import {filtersKeyboards, filtersKeyboardsArr, filtersMice, filtersMiceArr} from '../utils/constants';
 
@@ -10,7 +10,7 @@ const Filters = ({type}) => {
     const devicesType = type === 'mice' ? filtersMice : filtersKeyboards;
 
     const dispatch = useDispatch();
-    const {filterId} = useSelector(state => state.filters);
+    const {filterId} = useSelector(filterSelector);
     const [checkedState, setCheckedState] = useState(() => {
         const checkedSave = localStorage.getItem('filter');
         if (checkedSave) {

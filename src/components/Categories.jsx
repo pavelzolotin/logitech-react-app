@@ -1,12 +1,12 @@
 import {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 
-import {setCategoryId} from '../redux/slices/filterSlice';
+import {filterSelector, setCategoryId} from '../redux/slices/filterSlice';
 import {categoriesMice, categoriesKeyboards} from '../utils/constants';
 
 const Categories = ({type}) => {
     const dispatch = useDispatch();
-    const {categoryId} = useSelector(state => state.filters);
+    const {categoryId} = useSelector(filterSelector);
     const categoriesType = type === 'mice' ? categoriesMice : categoriesKeyboards;
 
     const onClickCategory = (id) => {

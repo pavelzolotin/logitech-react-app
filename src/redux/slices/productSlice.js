@@ -6,6 +6,7 @@ export const fetchProducts = createAsyncThunk('item/fetchProducts', async (param
         const {data} = await axios.get(
             `https://6407307d862956433e676ec6.mockapi.io/${type}?page=${currentPage}&${category}&${search}&${filter}&sortBy=${sortType}&order=${orderType}`
         );
+
         return data;
     }
 );
@@ -39,6 +40,8 @@ const productSlice = createSlice({
             })
     }
 });
+
+export const productSelector = (state) => state.products;
 
 export const {setProducts} = productSlice.actions;
 

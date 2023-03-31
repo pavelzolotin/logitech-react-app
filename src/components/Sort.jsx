@@ -1,15 +1,16 @@
 import {useState, useEffect, useRef} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 
-import {setSort, setOrderType} from '../redux/slices/filterSlice';
+import {themeSelector} from '../redux/slices/themeSlice';
+import {filterSelector, setSort, setOrderType} from '../redux/slices/filterSlice';
 import {sorts} from '../utils/constants';
 import ArrowLight from '../assets/img/arrow-light.svg';
 import ArrowDark from '../assets/img/arrow.svg';
 
 const Sort = () => {
     const dispatch = useDispatch();
-    const {theme} = useSelector(state => state.mode);
-    const {sort, orderType} = useSelector(state => state.filters);
+    const {theme} = useSelector(themeSelector);
+    const {sort, orderType} = useSelector(filterSelector);
     const [isVisible, setIsVisible] = useState(false);
     const sortRef = useRef(null);
 

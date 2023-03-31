@@ -1,14 +1,14 @@
 import {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 
-import {setTheme} from '../../redux/slices/themeSlice';
+import {setTheme, themeSelector} from '../../redux/slices/themeSlice';
 import styles from './ToggleTheme.module.scss';
 import MoonIcon from '../../assets/img/moon-icon.svg';
 import SunIcon from '../../assets/img/sun-warm-icon.svg';
 
 const ToggleTheme = () => {
     const dispatch = useDispatch();
-    const {theme} = useSelector(state => state.mode);
+    const {theme} = useSelector(themeSelector);
 
     const toggleIsClicked = theme === 'light' ? true : '';
 

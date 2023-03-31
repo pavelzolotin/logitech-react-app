@@ -1,6 +1,8 @@
 import {useSelector, useDispatch} from 'react-redux';
 import {Link, NavLink} from 'react-router-dom';
 
+import {themeSelector} from '../redux/slices/themeSlice';
+import {cartSelector} from '../redux/slices/cartSlice';
 import {setCategoryId, setFilterId} from '../redux/slices/filterSlice';
 import Search from './Search';
 import ToggleTheme from './ToggleTheme';
@@ -9,8 +11,8 @@ import LogoLight from '../assets/img/logo-light.svg';
 
 const Header = () => {
     const dispatch = useDispatch();
-    const {theme} = useSelector(state => state.mode);
-    const {items, totalPrice} = useSelector(state => state.cart);
+    const {theme} = useSelector(themeSelector);
+    const {items, totalPrice} = useSelector(cartSelector);
 
     const itemsTotalCount = items.reduce((sum, item) => sum + item.count, 0);
 

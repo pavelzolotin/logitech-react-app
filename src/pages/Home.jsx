@@ -4,8 +4,8 @@ import {useNavigate} from 'react-router-dom';
 import qs from 'qs';
 
 import {sorts} from '../utils/constants';
-import {fetchProducts} from '../redux/slices/productSlice';
-import {setFilters} from '../redux/slices/filterSlice';
+import {fetchProducts, productSelector} from '../redux/slices/productSlice';
+import {filterSelector, setFilters} from '../redux/slices/filterSlice';
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
 import Filters from '../components/Filters';
@@ -15,9 +15,8 @@ import Skeleton from '../components/ItemBlock/Skeleton';
 const Home = ({type}) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const {products, status} = useSelector(state => state.products);
-    const {searchValue} = useSelector(state => state.search);
-    const {categoryId, filterId, currentPage, orderType, sort} = useSelector(state => state.filters);
+    const {products, status} = useSelector(productSelector);
+    const {searchValue, categoryId, filterId, currentPage, orderType, sort} = useSelector(filterSelector);
     const isSearch = useRef(false);
     const isMounted = useRef(false);
 
@@ -39,7 +38,7 @@ const Home = ({type}) => {
             const getItems = async () => {
                 const category = categoryId > 0 ? `category=${categoryId}` : '';
                 const search = searchValue ? `search=${searchValue}` : '';
-                const filter = filterId >= 0 ? `filters=${filterId}` : '';
+                const filter = filterId > 0 ? `filters=${filterId}` : '';
 
                 dispatch(fetchProducts({
                     type,
