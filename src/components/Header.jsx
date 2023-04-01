@@ -66,7 +66,7 @@ const Header = () => {
                 </div>
                 <div className="header__search--wrapper">
                     {
-                        pathname === '/' && (
+                        ((pathname === '/') || (pathname === '/keyboards')) && (
                             <Search />
                         )
                     }
