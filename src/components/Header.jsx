@@ -23,12 +23,12 @@ const Header = () => {
         dispatch(setFilterId(''));
     };
 
-    const typeMice = () => {
+    const onClickMice = () => {
         dispatch(setType('mice'));
         filtersReset();
     };
 
-    const typeKeyboards = () => {
+    const onClickKeyboards = () => {
         dispatch(setType('keyboards'));
         filtersReset();
     };
@@ -39,7 +39,7 @@ const Header = () => {
                 <div className="header__logo">
                     <NavLink
                         to="/"
-                        onClick={typeMice}
+                        onClick={onClickMice}
                     >
                         <img
                             src={theme === 'dark' ? LogoLight : LogoDark}
@@ -52,21 +52,21 @@ const Header = () => {
                     <NavLink
                         to="/"
                         className="header__pages--link"
-                        onClick={typeMice}
+                        onClick={onClickMice}
                     >
                         Мыши
                     </NavLink>
                     <NavLink
                         to="/keyboards"
                         className="header__pages--link"
-                        onClick={typeKeyboards}
+                        onClick={onClickKeyboards}
                     >
                         Клавиатуры
                     </NavLink>
                 </div>
                 <div className="header__search--wrapper">
                     {
-                        pathname !== '/cart' && (
+                        pathname === '/' && (
                             <Search />
                         )
                     }
