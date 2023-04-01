@@ -30,7 +30,7 @@ const Search = () => {
     };
 
     return (
-        <div className={styles.root}>
+        <div className={`${styles.root} header__search`}>
             <svg
                 className={styles.icon}
                 xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +41,7 @@ const Search = () => {
             </svg>
             <input
                 ref={inputRef}
-                className={styles.input}
+                className={`${styles.input} header__search--input`}
                 placeholder="Поиск"
                 value={value}
                 onChange={onChangeInput}

@@ -373,20 +373,30 @@
     background: #3a3a3a;
   }
 
-  .header__pages--link {
-    color: $white;
-
-    &.active {
-      color: #686868;
-    }
-
-    &:hover {
-      color: #686868;
-    }
-  }
-
   .header {
     background-color: #3a3a3a;
+
+    &__pages--link {
+      color: $white;
+
+      &.active {
+        color: #686868;
+      }
+
+      &:hover {
+        color: #686868;
+      }
+    }
+
+    &__search {
+      &:hover {
+        box-shadow: rgba(255, 255, 255, 0.25) 0 .2rem 1.5rem, rgba(255, 255, 255, 0.25) 0 .2rem .4rem;
+      }
+
+      &--input {
+        background-color: #f0f0f0;
+      }
+    }
   }
 
   .categories ul li {
@@ -482,15 +492,25 @@
 
   .header {
     background-color: $white-milk;
-  }
 
-  .header__pages--link {
-    &.active {
-      color: #ada9a9;
+    &__search {
+      &:hover {
+        box-shadow: rgba(0, 0, 0, 0.08) 0 .2rem 1.5rem, rgba(0, 0, 0, 0.08) 0 .2rem .2rem;
+      }
+
+      &--input {
+        background-color: #f0f0f0;
+      }
     }
 
-    &:hover {
-      color: #ada9a9;
+    &__pages--link {
+      &.active {
+        color: #ada9a9;
+      }
+
+      &:hover {
+        color: #ada9a9;
+      }
     }
   }
 
