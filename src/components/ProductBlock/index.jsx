@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 
 import {addItem, cartItemSelectorById} from '../../redux/slices/cartSlice';
 
-const ItemBlock = ({id, title, imageUrl, price, colors}) => {
+const ProductBlock = ({id, title, imageUrl, price, colors}) => {
     const dispatch = useDispatch();
     const cartItem = useSelector(cartItemSelectorById(id));
     const [activeColor, setActiveColor] = useState(0);
@@ -23,25 +23,23 @@ const ItemBlock = ({id, title, imageUrl, price, colors}) => {
     };
 
     return (
-        <div className="item-block">
-            <>
-                <Link to={`/items/${id}`}>
-                    <img
-                        className="item-block__image"
-                        src={imageUrl[activeColor]}
-                        alt="item"
-                    />
-                    <h4 className="item-block__title">{title}</h4>
-                </Link>
-            </>
-            <div className="item-block__selector">
+        <div className="product-block">
+            <Link to={`/items/${id}`}>
+                <img
+                    className="product-block__image"
+                    src={imageUrl[activeColor]}
+                    alt="product"
+                />
+                <h4 className="product-block__title">{title}</h4>
+            </Link>
+            <div className="product-block__selector">
                 <p>Цвет:</p>
-                <div className="item-block--colors">
+                <div className="product-block--colors">
                     {
                         colors.map(color => (
                             <div
                                 key={color.id}
-                                className={`item-block--color ${activeColor === color.id || colors.length === 1 ? 'active' : ''}`}
+                                className={`product-block--color ${activeColor === color.id || colors.length === 1 ? 'active' : ''}`}
                                 style={{backgroundColor: `${color.color}`}}
                                 onClick={() => setActiveColor(color.id)}
                             >
@@ -50,8 +48,8 @@ const ItemBlock = ({id, title, imageUrl, price, colors}) => {
                     }
                 </div>
             </div>
-            <div className="item-block__bottom">
-                <div className="item-block__price">{price} <span>₽</span></div>
+            <div className="product-block__bottom">
+                <div className="product-block__price">{price} <span>₽</span></div>
                 <button
                     onClick={() => onClickAdd()}
                     className="button button--outline button--add"
@@ -78,4 +76,4 @@ const ItemBlock = ({id, title, imageUrl, price, colors}) => {
     );
 };
 
-export default ItemBlock;
+export default ProductBlock;

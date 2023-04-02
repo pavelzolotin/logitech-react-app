@@ -174,7 +174,7 @@
     padding-top: 30px;
     margin-top: 30px;
 
-    &-img {
+    &-image {
       display: flex;
       align-items: center;
       margin-right: 15px;
@@ -451,7 +451,7 @@
     }
   }
 
-  .item-block {
+  .product-block {
     &__selector {
       background-color: #6c6c6c;
 
@@ -554,7 +554,7 @@
     }
   }
 
-  .item-block {
+  .product-block {
     &__selector {
       background-color: $white-milk;
 
@@ -565,6 +565,10 @@
 
     &__price {
       color: #333333;
+
+      span {
+        opacity: .5;
+      }
     }
   }
 

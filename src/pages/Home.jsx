@@ -9,8 +9,8 @@ import {filterSelector, setFilters} from '../redux/slices/filterSlice';
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
 import Filters from '../components/Filters';
-import ItemBlock from '../components/ItemBlock';
-import Skeleton from '../components/ItemBlock/Skeleton';
+import ItemBlock from '../components/ProductBlock';
+import Skeleton from '../components/ProductBlock/Skeleton';
 
 const Home = () => {
     const navigate = useNavigate();
