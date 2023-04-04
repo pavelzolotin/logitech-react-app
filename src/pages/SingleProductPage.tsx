@@ -10,7 +10,14 @@ import {addItem, cartItemSelectorById} from '../redux/slices/cartSlice';
 
 const SingleProductPage = () => {
     const dispatch = useDispatch();
-    const [currentProduct, setCurrentProduct] = useState([]);
+    const [currentProduct, setCurrentProduct] = useState<{
+        id: number;
+        imageUrl: string[];
+        title: string;
+        description: string;
+        colors: object[];
+        price: number;
+    }>();
     const [activeColor, setActiveColor] = useState(0);
     const [isActive, setIsActive] = useState(true);
     const cartItem = useSelector(cartItemSelectorById(currentProduct.id));
@@ -20,10 +27,10 @@ const SingleProductPage = () => {
     const addedCount = cartItem ? cartItem.count : 0;
 
     const onClickAdd = () => {
-        const id = currentProduct.id;
-        const title = currentProduct.title;
-        const price = currentProduct.price;
-        const imageUrl = currentProduct.imageUrl;
+        const id: number = currentProduct.id;
+        const title: string = currentProduct.title;
+        const price: number = currentProduct.price;
+        const imageUrl: [string] = currentProduct.imageUrl;
 
         const item = {
             id,
@@ -35,6 +42,7 @@ const SingleProductPage = () => {
 
         dispatch(addItem(item));
     };
+
     useEffect(() => {
         const getItems = async () => {
             setIsActive(true);
@@ -52,7 +60,7 @@ const SingleProductPage = () => {
     }, [type, id, navigate]);
 
     if (!currentProduct) {
-        return 'Загрузка...';
+        return <>Загрузка...</>;
     }
 
     return (
@@ -101,7 +109,8 @@ const SingleProductPage = () => {
                                             </svg>
                                             <span>Вернуться назад</span>
                                         </Link>
-                                        <div className="single-product-block__price">{currentProduct.price} <span>₽</span>
+                                        <div className="single-product-block__price">{currentProduct.price}
+                                            <span>₽</span>
                                         </div>
                                         <button
                                             onClick={() => onClickAdd()}

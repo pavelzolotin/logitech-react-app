@@ -12,7 +12,7 @@ const Sort = () => {
     const {theme} = useSelector(themeSelector);
     const {sort, orderType} = useSelector(filterSelector);
     const [isVisible, setIsVisible] = useState(false);
-    const sortRef = useRef(null);
+    const sortRef = useRef<HTMLDivElement>(null!);
 
     const onClickSort = (obj) => {
         dispatch(setSort(obj));

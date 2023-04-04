@@ -4,7 +4,11 @@ import {useSelector, useDispatch} from 'react-redux';
 import {filterSelector, setCategoryId} from '../redux/slices/filterSlice';
 import {categoriesMice, categoriesKeyboards} from '../utils/constants';
 
-const Categories = ({type}) => {
+type CategoriesProps = {
+  type: string;
+};
+
+const Categories = ({type}: CategoriesProps) => {
     const dispatch = useDispatch();
     const {categoryId} = useSelector(filterSelector);
     const categoriesType = type === 'mice' ? categoriesMice : categoriesKeyboards;
