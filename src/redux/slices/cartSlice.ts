@@ -1,15 +1,31 @@
-import {createSlice} from '@reduxjs/toolkit';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
-const initialState = {
+import {RootState} from '../store';
+
+export type CartItem = {
+    id: string;
+    title: string;
+    price: number;
+    imageUrl: string[];
+    activeColor: number;
+    count: number;
+}
+
+export interface CartSliceState {
+    totalPrice: number;
+    items: CartItem[];
+}
+
+const initialState: CartSliceState = {
     totalPrice: 0,
     items: []
 };
 
-const cartSlice = createSlice({
+export const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
-        addItem(state, action) {
+        addItem(state, action: PayloadAction<CartItem>) {
             const findItem = state.items.find(obj => obj.id === action.payload.id);
             findItem
                 ? findItem.count++
@@ -22,7 +38,7 @@ const cartSlice = createSlice({
                 return obj.price * obj.count + sum;
             }, 0);
         },
-        minusItem(state, action) {
+        minusItem(state, action: PayloadAction<string>) {
             const findItem = state.items.find(obj => obj.id === action.payload);
 
             findItem.count--;
@@ -33,7 +49,7 @@ const cartSlice = createSlice({
                 state.totalPrice = 0;
             }
         },
-        removeItem(state, action) {
+        removeItem(state, action: PayloadAction<string>) {
             const findItem = state.items.find(obj => obj.id === action.payload);
             state.items = state.items.filter(obj => obj.id !== action.payload);
             state.totalPrice -= findItem.price;
@@ -45,8 +61,8 @@ const cartSlice = createSlice({
     }
 });
 
-export const cartSelector = (state) => state.cart;
-export const cartItemSelectorById = (id) => (state) => state.cart.items.find(obj => obj.id === id);
+export const cartSelector = (state: RootState) => state.cart;
+export const cartItemSelectorById = (id: string) => (state: RootState) => state.cart.items.find(obj => obj.id === id);
 
 export const {addItem, minusItem, removeItem, clearItems} = cartSlice.actions;
 

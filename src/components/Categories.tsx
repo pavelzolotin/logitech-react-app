@@ -1,11 +1,11 @@
-import {useEffect} from 'react';
+import {useEffect, useCallback} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 
 import {filterSelector, setCategoryId} from '../redux/slices/filterSlice';
 import {categoriesMice, categoriesKeyboards} from '../utils/constants';
 
 type CategoriesProps = {
-  type: string;
+    type: string;
 };
 
 const Categories = ({type}: CategoriesProps) => {
@@ -13,9 +13,10 @@ const Categories = ({type}: CategoriesProps) => {
     const {categoryId} = useSelector(filterSelector);
     const categoriesType = type === 'mice' ? categoriesMice : categoriesKeyboards;
 
-    const onClickCategory = (id) => {
-        dispatch(setCategoryId(id));
-    };
+    const onClickCategory = useCallback(
+        (id: number) => {
+            dispatch(setCategoryId(id));
+        }, [dispatch]);
 
     useEffect(() => {
         localStorage.setItem('category', categoryId);

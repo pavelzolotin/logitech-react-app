@@ -4,7 +4,7 @@ import styles from './Pagination.module.scss';
 
 type PaginationProps = {
     value: number;
-    onChangePage: any;
+    onChangePage: (event: number) => void;
 };
 
 const Pagination = ({value, onChangePage}: PaginationProps) => {
@@ -16,9 +16,8 @@ const Pagination = ({value, onChangePage}: PaginationProps) => {
             nextLabel=">"
             onPageChange={event => onChangePage(event.selected + 1)}
             pageRangeDisplayed={4}
-            pageCount={3}
+            pageCount={1}
             forcePage={value - 1}
-            renderOnZeroPageCount={null}
         />
     );
 };

@@ -8,18 +8,20 @@ import {productSelector} from '../redux/slices/productSlice';
 import SkeletonSingle from '../components/ProductBlock/SkeletonSingle';
 import {addItem, cartItemSelectorById} from '../redux/slices/cartSlice';
 
+type ProductState = {
+    id: string;
+    title: string;
+    imageUrl: string[];
+    description: string;
+    colors: object[];
+    price: number;
+}
+
 const SingleProductPage = () => {
     const dispatch = useDispatch();
-    const [currentProduct, setCurrentProduct] = useState<{
-        id: number;
-        imageUrl: string[];
-        title: string;
-        description: string;
-        colors: object[];
-        price: number;
-    }>();
-    const [activeColor, setActiveColor] = useState(0);
-    const [isActive, setIsActive] = useState(true);
+    const [currentProduct, setCurrentProduct] = useState<ProductState[]>([]);
+    const [activeColor, setActiveColor] = useState<number>(0);
+    const [isActive, setIsActive] = useState<boolean>(true);
     const cartItem = useSelector(cartItemSelectorById(currentProduct.id));
     const {type} = useSelector(productSelector);
     const {id} = useParams();
@@ -27,10 +29,10 @@ const SingleProductPage = () => {
     const addedCount = cartItem ? cartItem.count : 0;
 
     const onClickAdd = () => {
-        const id: number = currentProduct.id;
+        const id: string = currentProduct.id;
         const title: string = currentProduct.title;
         const price: number = currentProduct.price;
-        const imageUrl: [string] = currentProduct.imageUrl;
+        const imageUrl: string[] = currentProduct.imageUrl;
 
         const item = {
             id,

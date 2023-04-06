@@ -7,7 +7,7 @@ import {addItem, cartItemSelectorById} from '../../redux/slices/cartSlice';
 type ProductBlockTypes = {
     id: string;
     title: string;
-    price: string;
+    price: number;
     imageUrl: string[];
     colors: object[];
 };
@@ -15,7 +15,8 @@ type ProductBlockTypes = {
 const ProductBlock = ({id, title, imageUrl, price, colors}: ProductBlockTypes) => {
     const dispatch = useDispatch();
     const cartItem = useSelector(cartItemSelectorById(id));
-    const [activeColor, setActiveColor] = useState(0);
+    const [activeColor, setActiveColor] = useState<number>(0);
+
     const addedCount = cartItem ? cartItem.count : 0;
 
     const onClickAdd = () => {
@@ -24,7 +25,8 @@ const ProductBlock = ({id, title, imageUrl, price, colors}: ProductBlockTypes) =
             title,
             price,
             imageUrl,
-            activeColor
+            activeColor,
+            count: 0
         };
 
         dispatch(addItem(item));

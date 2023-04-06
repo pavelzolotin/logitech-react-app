@@ -1,31 +1,33 @@
-import {useEffect, useRef} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+import {useState, useEffect, useRef} from 'react';
+import {useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
+import {useAppDispatch} from '../redux/store';
 import qs from 'qs';
 
 import {sorts} from '../utils/constants';
 import {fetchProducts, productSelector} from '../redux/slices/productSlice';
-import {filterSelector, setFilters} from '../redux/slices/filterSlice';
+import {filterSelector, setFilters, setCurrentPage} from '../redux/slices/filterSlice';
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
 import Filters from '../components/Filters';
-import ItemBlock from '../components/ProductBlock';
+import ProductBlock from '../components/ProductBlock';
+import Pagination from '../components/Pagination';
 import Skeleton from '../components/ProductBlock/Skeleton';
 
 const Home = () => {
     const navigate = useNavigate();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const {products, type, status} = useSelector(productSelector);
     const {searchValue, categoryId, filterId, currentPage, orderType, sort} = useSelector(filterSelector);
+    const [paginationVisible, setPaginationVisible] = useState<boolean>(true);
     const isSearch = useRef(false);
     const isMounted = useRef(false);
 
     const sortType = sort.sortProperty;
 
     const items = products.map(item => (
-        <ItemBlock
+        <ProductBlock
             key={item.id}
-            type={type}
             {...item}
         />
     ));
@@ -41,6 +43,12 @@ const Home = () => {
                 const search = searchValue ? `search=${searchValue}` : '';
                 const filter = filterId > 0 ? `filters=${filterId}` : '';
 
+                if (searchValue) {
+                    setPaginationVisible(false);
+                } else {
+                    setPaginationVisible(true);
+                }
+
                 dispatch(fetchProducts({
                     type,
                     currentPage,
@@ -51,6 +59,7 @@ const Home = () => {
                     orderType
                 }));
             };
+
             getItems();
         }
 
@@ -122,6 +131,15 @@ const Home = () => {
                         )
                 }
             </div>
+            {
+                paginationVisible ? (
+                    <div className="content__pagination">
+                        <Pagination
+                            value={currentPage}
+                            onChangePage={number => setCurrentPage(number)} />
+                    </div>
+                ) : null
+            }
         </>
     );
 };

@@ -4,17 +4,20 @@ import {useSelector, useDispatch} from 'react-redux';
 import {themeSelector} from '../redux/slices/themeSlice';
 import {filterSelector, setSort, setOrderType} from '../redux/slices/filterSlice';
 import {sorts} from '../utils/constants';
+import {SortItem} from '../utils/constants';
 import ArrowLight from '../assets/img/arrow-light.svg';
 import ArrowDark from '../assets/img/arrow.svg';
+
+
 
 const Sort = () => {
     const dispatch = useDispatch();
     const {theme} = useSelector(themeSelector);
     const {sort, orderType} = useSelector(filterSelector);
-    const [isVisible, setIsVisible] = useState(false);
-    const sortRef = useRef<HTMLDivElement>(null!);
+    const [isVisible, setIsVisible] = useState<boolean>(false);
+    const sortRef = useRef<HTMLDivElement>(null);
 
-    const onClickSort = (obj) => {
+    const onClickSort = (obj: SortItem) => {
         dispatch(setSort(obj));
         setIsVisible(false);
     };
@@ -28,8 +31,8 @@ const Sort = () => {
     };
 
     useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (!event.composedPath().includes(sortRef.current)) {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (sortRef.current && !event.composedPath().includes(sortRef.current)) {
                 setIsVisible(false);
             }
         };
@@ -60,7 +63,7 @@ const Sort = () => {
                     <div className="sort__popup">
                         <ul>
                             {
-                                sorts.map((obj, i) => (
+                                sorts.map(obj => (
                                     <li
                                         key={obj.id}
                                         onClick={() => onClickSort(obj)}

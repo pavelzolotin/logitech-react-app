@@ -10,7 +10,7 @@ const ToggleTheme = () => {
     const dispatch = useDispatch();
     const {theme} = useSelector(themeSelector);
 
-    const toggleIsClicked = theme === 'light' ? true : '';
+    const toggleIsClicked: boolean | undefined = theme === 'light';
 
     const toggleTheme = () => {
         if (theme === 'dark') {

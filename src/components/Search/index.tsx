@@ -1,4 +1,4 @@
-import {useState, useRef, useMemo} from 'react';
+import React, {useState, useRef, useMemo} from 'react';
 import {useDispatch} from 'react-redux';
 import {debounce} from 'lodash';
 
@@ -7,8 +7,8 @@ import {setSearchValue} from '../../redux/slices/filterSlice';
 
 const Search = () => {
     const dispatch = useDispatch();
-    const [value, setValue] = useState('');
-    const inputRef = useRef(null);
+    const [value, setValue] = useState<string>('');
+    const inputRef = useRef<HTMLInputElement>(null);
 
     const updateSearchValue = useMemo(
         () =>
@@ -18,7 +18,7 @@ const Search = () => {
         [dispatch]
     );
 
-    const onChangeInput = (event) => {
+    const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value);
         updateSearchValue(event.target.value);
     };
@@ -26,7 +26,7 @@ const Search = () => {
     const onClickClear = () => {
         dispatch(setSearchValue(''));
         setValue('');
-        inputRef.current.focus();
+        inputRef.current?.focus();
     };
 
     return (

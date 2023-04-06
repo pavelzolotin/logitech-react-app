@@ -5,7 +5,11 @@ import {filterSelector, setFilterId} from '../redux/slices/filterSlice';
 
 import {filtersKeyboards, filtersKeyboardsArr, filtersMice, filtersMiceArr} from '../utils/constants';
 
-const Filters = ({type}) => {
+type FiltersProps = {
+    type: string;
+};
+
+const Filters = ({type}: FiltersProps) => {
     const checkedStateArr = type === 'mice' ? filtersMiceArr.length : filtersKeyboardsArr.length;
     const devicesType = type === 'mice' ? filtersMice : filtersKeyboards;
 
@@ -20,7 +24,7 @@ const Filters = ({type}) => {
         }
     });
 
-    const handleOnChangeChecked = (id) => {
+    const handleOnChangeChecked = (id: number) => {
         const updatedCheckedState = checkedState.map((item, i) =>
             id === i ? !item : item
         );
