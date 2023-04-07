@@ -24,7 +24,7 @@ const Filters = ({type}: FiltersProps) => {
         }
     });
 
-    const handleOnChangeChecked = (id: number) => {
+    const handleOnChangeChecked = (id) => {
         const updatedCheckedState = checkedState.map((item, i) =>
             id === i ? !item : item
         );

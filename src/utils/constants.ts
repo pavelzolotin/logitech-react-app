@@ -52,9 +52,9 @@ export type SortItem = {
     id: number;
     title: string;
     sortProperty: string;
-}[];
+}
 
-export const sorts: SortItem = [
+export const sorts = [
     {
         id: 0,
         title: 'популярности',
@@ -255,6 +255,7 @@ const filterSort = (filters, arr) => {
             arr.push(item)
         ))
     ));
+
     return filtersSorted;
 };
 

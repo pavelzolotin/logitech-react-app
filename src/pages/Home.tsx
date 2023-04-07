@@ -15,11 +15,15 @@ import Pagination from '../components/Pagination';
 import Skeleton from '../components/ProductBlock/Skeleton';
 
 const Home = () => {
+    const sortStorage = localStorage.getItem('sorted');
+
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const {products, type, status} = useSelector(productSelector);
-    const {searchValue, categoryId, filterId, currentPage, orderType, sort} = useSelector(filterSelector);
+    const {searchValue, categoryId, filterId, currentPage} = useSelector(filterSelector);
     const [paginationVisible, setPaginationVisible] = useState<boolean>(true);
+    const [sort, setSort] = useState(sortStorage ? JSON.parse(sortStorage) : {title: 'популярности', sortProperty: 'rating'});
+    const [orderType, setOrderType] = useState<string>(localStorage.getItem('order') || 'asc');
     const isSearch = useRef(false);
     const isMounted = useRef(false);
 
@@ -33,7 +37,7 @@ const Home = () => {
     ));
 
     const skeletons = [...Array(8)].map((_, i) => (
-        <Skeleton key={i} />
+        <Skeleton key={i}/>
     ));
 
     useEffect(() => {
@@ -102,8 +106,14 @@ const Home = () => {
             <div className="content__top">
                 <Categories
                     type={type}
+                    categoryId={categoryId}
                 />
-                <Sort />
+                <Sort
+                    sort={sort}
+                    setSort={setSort}
+                    orderType={orderType}
+                    setOrderType={setOrderType}
+                />
             </div>
             <div className="content__main">
                 {
@@ -136,7 +146,7 @@ const Home = () => {
                     <div className="content__pagination">
                         <Pagination
                             value={currentPage}
-                            onChangePage={number => setCurrentPage(number)} />
+                            onChangePage={number => setCurrentPage(number)}/>
                     </div>
                 ) : null
             }

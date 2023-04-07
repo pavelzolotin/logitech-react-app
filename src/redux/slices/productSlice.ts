@@ -2,15 +2,14 @@ import {createSlice, createAsyncThunk, PayloadAction} from '@reduxjs/toolkit';
 import axios from 'axios';
 
 import {RootState} from '../store';
-import Sort from '../slices/filterSlice';
 
 export type FetchProductsArgs = {
     type: string;
     currentPage: number;
-    category: number;
+    category: string;
     search: string;
-    filter: number;
-    sortType: Sort;
+    filter: string;
+    sortType: string;
     orderType: string;
 };
 
@@ -43,7 +42,7 @@ enum Status {
 
 export interface ProductSliceState {
     products: Product[];
-    type: 'mice' | 'keyboards';
+    type: string;
     status: Status;
 }
 
