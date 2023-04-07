@@ -5,8 +5,10 @@ import {useAppDispatch} from '../redux/store';
 import qs from 'qs';
 
 import {sorts} from '../utils/constants';
-import {fetchProducts, productSelector} from '../redux/slices/productSlice';
-import {filterSelector, setFilters, setCurrentPage} from '../redux/slices/filterSlice';
+import {productSelector} from '../redux/product/selectors';
+import {fetchProducts} from '../redux/product/asyncActions';
+import {setFilters, setCurrentPage} from '../redux/filter/slice';
+import {filterSelector} from '../redux/filter/selectors';
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
 import Filters from '../components/Filters';
@@ -22,8 +24,11 @@ const Home = () => {
     const {products, type, status} = useSelector(productSelector);
     const {searchValue, categoryId, filterId, currentPage} = useSelector(filterSelector);
     const [paginationVisible, setPaginationVisible] = useState<boolean>(true);
-    const [sort, setSort] = useState(sortStorage ? JSON.parse(sortStorage) : {title: 'популярности', sortProperty: 'rating'});
-    const [orderType, setOrderType] = useState<string>(localStorage.getItem('order') || 'asc');
+    const [sort, setSort] = useState(sortStorage ? JSON.parse(sortStorage) : {
+        title: 'популярности',
+        sortProperty: 'rating'
+    });
+    const [orderType, setOrderType] = useState(localStorage.getItem('order') || 'asc');
     const isSearch = useRef(false);
     const isMounted = useRef(false);
 

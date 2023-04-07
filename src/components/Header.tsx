@@ -1,10 +1,11 @@
+import {useEffect, useRef} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {Link, NavLink, useLocation} from 'react-router-dom';
 
-import {themeSelector} from '../redux/slices/themeSlice';
-import {setType} from '../redux/slices/productSlice';
-import {cartSelector} from '../redux/slices/cartSlice';
-import {setCategoryId, setFilterId} from '../redux/slices/filterSlice';
+import {themeSelector} from '../redux/themeMode/selectors';
+import {setType} from '../redux/product/slice';
+import {cartSelector} from '../redux/cart/selectors';
+import {setCategoryId, setFilterId} from '../redux/filter/slice';
 import Search from './Search';
 import ToggleTheme from './ToggleTheme';
 import LogoDark from '../assets/img/logo.svg';
@@ -15,6 +16,7 @@ const Header = () => {
     const {pathname} = useLocation();
     const {theme} = useSelector(themeSelector);
     const {items, totalPrice} = useSelector(cartSelector);
+    const isMounted = useRef(false);
 
     const itemsTotalCount = items.reduce((sum, item) => sum + item.count, 0);
 
@@ -32,6 +34,14 @@ const Header = () => {
         dispatch(setType('keyboards'));
         filtersReset();
     };
+
+    useEffect(() => {
+        if (isMounted.current) {
+            const json = JSON.stringify(items);
+            localStorage.setItem('cart', json);
+        }
+        isMounted.current = true;
+    }, [items]);
 
     return (
         <div className="header">
@@ -67,11 +77,11 @@ const Header = () => {
                 <div className="header__search--wrapper">
                     {
                         ((pathname === '/') || (pathname === '/keyboards')) && (
-                            <Search />
+                            <Search/>
                         )
                     }
                 </div>
-                <ToggleTheme />
+                <ToggleTheme/>
                 <div className="header__cart--wrapper">
                     <button className="header__cart">
                         {

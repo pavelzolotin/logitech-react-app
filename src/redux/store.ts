@@ -1,10 +1,10 @@
 import {configureStore} from '@reduxjs/toolkit';
 import {useDispatch} from 'react-redux';
 
-import productSlice from './slices/productSlice';
-import filterSlice from './slices/filterSlice';
-import themeSlice from './slices/themeSlice';
-import cartSlice from './slices/cartSlice';
+import productSlice from './product/slice';
+import filterSlice from './filter/slice';
+import themeSlice from './themeMode/slice';
+import cartSlice from './cart/slice';
 
 export const store = configureStore({
     reducer: {

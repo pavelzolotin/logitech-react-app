@@ -4,9 +4,10 @@ import {useDispatch, useSelector} from 'react-redux';
 
 import axios from 'axios';
 
-import {productSelector} from '../redux/slices/productSlice';
+import {productSelector} from '../redux/product/selectors';
 import SkeletonSingle from '../components/ProductBlock/SkeletonSingle';
-import {addItem, cartItemSelectorById} from '../redux/slices/cartSlice';
+import {addItem} from '../redux/cart/slice';
+import {cartItemSelectorById} from '../redux/cart/selectors';
 
 type ProductState = {
     id: string;

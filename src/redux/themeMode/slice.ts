@@ -1,8 +1,6 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
-export interface ThemeSliceState {
-    theme: string;
-}
+import {ThemeSliceState} from './types';
 
 const initialState: ThemeSliceState = {
     theme: localStorage.getItem('theme') || 'light'
@@ -17,8 +15,6 @@ export const themeSlice = createSlice({
         }
     }
 });
-
-export const themeSelector = (state: any) => state.theme;
 
 export const {setTheme} = themeSlice.actions;
 

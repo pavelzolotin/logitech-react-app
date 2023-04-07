@@ -1,7 +1,7 @@
 import {useEffect, memo} from 'react';
 import {useDispatch} from 'react-redux';
 
-import {setCategoryId} from '../redux/slices/filterSlice';
+import {setCategoryId} from '../redux/filter/slice';
 import {categoriesMice, categoriesKeyboards} from '../utils/constants';
 
 type CategoriesProps = {

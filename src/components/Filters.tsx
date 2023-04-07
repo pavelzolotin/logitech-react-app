@@ -1,9 +1,11 @@
 import {useEffect, useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 
-import {filterSelector, setFilterId} from '../redux/slices/filterSlice';
+import {setFilterId} from '../redux/filter/slice';
+import {filterSelector} from '../redux/filter/selectors';
 
-import {filtersKeyboards, filtersKeyboardsArr, filtersMice, filtersMiceArr} from '../utils/constants';
+import {filtersKeyboards, filtersMice} from '../utils/constants';
+import {filtersMiceArr, filtersKeyboardsArr} from '../utils/filtersCalc';
 
 type FiltersProps = {
     type: string;

@@ -1,7 +1,7 @@
 import {useState, useEffect, useRef, memo} from 'react';
 import {useSelector} from 'react-redux';
 
-import {themeSelector} from '../redux/slices/themeSlice';
+import {themeSelector} from '../redux/themeMode/selectors';
 import {sorts} from '../utils/constants';
 import {SortItem} from '../utils/constants';
 import ArrowLight from '../assets/img/arrow-light.svg';
