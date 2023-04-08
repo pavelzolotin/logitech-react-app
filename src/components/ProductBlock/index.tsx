@@ -1,9 +1,9 @@
-import {useState} from 'react';
-import {Link} from 'react-router-dom';
-import {useDispatch, useSelector} from 'react-redux';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
-import {addItem} from '../../redux/cart/slice';
-import {cartItemSelectorById} from '../../redux/cart/selectors';
+import { addItem } from '../../redux/cart/slice';
+import { cartItemSelectorById } from '../../redux/cart/selectors';
 
 const ProductBlock = ({id, title, imageUrl, price, colors}) => {
     const dispatch = useDispatch();

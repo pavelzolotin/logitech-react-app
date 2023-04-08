@@ -1,5 +1,5 @@
-import {configureStore} from '@reduxjs/toolkit';
-import {useDispatch} from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
+import { useDispatch } from 'react-redux';
 
 import productSlice from './product/slice';
 import filterSlice from './filter/slice';

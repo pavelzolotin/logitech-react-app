@@ -1,4 +1,4 @@
-import {filtersKeyboards, filtersMice} from './constants';
+import { filtersKeyboards, filtersMice } from './constants';
 
 export const filtersMiceArr = [];
 export const filtersKeyboardsArr = [];

@@ -1,12 +1,14 @@
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Header from './components/Header';
 import Home from './pages/Home';
-import SingleProductPage from './pages/SingleProductPage';
-import Cart from './pages/Cart';
 import PageNotFound from './pages/PageNotFound';
 
 import './scss/app.scss';
+
+const Cart = lazy(() => import('./pages/Cart'));
+const SingleProductPage = lazy(() => import('./pages/SingleProductPage'));
 
 function App() {
     return (
@@ -24,10 +26,14 @@ function App() {
                                     <Home />
                                 } />
                                 <Route path="items/:id" element={
-                                    <SingleProductPage />
+                                    <Suspense fallback={<div>Идёт загрузка...</div>}>
+                                        <SingleProductPage />
+                                    </Suspense>
                                 } />
                                 <Route path="/cart" element={
-                                    <Cart />
+                                    <Suspense fallback={<div>Идёт загрузка корзины...</div>}>
+                                        <Cart />
+                                    </Suspense>
                                 } />
                                 <Route path="*" element={
                                     <PageNotFound />

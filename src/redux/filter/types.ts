@@ -3,9 +3,17 @@ export interface FilterSliceState {
     categoryId: any;
     currentPage: number;
     filterId: any;
-    sort: {
-        id: number;
-        title: string;
-        sortProperty: string;
-    };
+    sort: Sort;
+}
+
+export type Sort = {
+    id: number;
+    title: string;
+    sortProperty: SortPropertyEnum;
+}
+
+export enum SortPropertyEnum {
+    rating = 'rating',
+    title = 'title',
+    price = 'price'
 }

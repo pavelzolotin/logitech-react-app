@@ -1,9 +1,8 @@
-import {useState, useEffect, useRef, memo} from 'react';
-import {useSelector} from 'react-redux';
+import { useState, useEffect, useRef, memo } from 'react';
+import { useSelector } from 'react-redux';
 
-import {themeSelector} from '../redux/themeMode/selectors';
-import {sorts} from '../utils/constants';
-import {SortItem} from '../utils/constants';
+import { themeSelector } from '../redux/themeMode/selectors';
+import { sorts } from '../utils/constants';
 import ArrowLight from '../assets/img/arrow-light.svg';
 import ArrowDark from '../assets/img/arrow.svg';
 
@@ -22,7 +21,7 @@ const Sort = memo(({sort, setSort, orderType, setOrderType}: SortProps) => {
         const [isVisible, setIsVisible] = useState<boolean>(false);
         const sortRef = useRef<HTMLDivElement>(null);
 
-        const onClickSort = (obj: SortItem) => {
+        const onClickSort = (obj) => {
             setSort(obj);
             setIsVisible(false);
         };

@@ -1,7 +1,7 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import {ProductSliceState, Status, Product} from './types';
-import {fetchProducts} from './asyncActions';
+import { ProductSliceState, Status, Product } from './types';
+import { fetchProducts } from './asyncActions';
 
 const initialState: ProductSliceState = {
     products: [],

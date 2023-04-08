@@ -1,11 +1,11 @@
-import {useEffect, useState} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-import {setFilterId} from '../redux/filter/slice';
-import {filterSelector} from '../redux/filter/selectors';
+import { setFilterId } from '../redux/filter/slice';
+import { filterSelector } from '../redux/filter/selectors';
 
-import {filtersKeyboards, filtersMice} from '../utils/constants';
-import {filtersMiceArr, filtersKeyboardsArr} from '../utils/filtersCalc';
+import { filtersKeyboards, filtersMice } from '../utils/constants';
+import { filtersMiceArr, filtersKeyboardsArr } from '../utils/filtersCalc';
 
 type FiltersProps = {
     type: string;

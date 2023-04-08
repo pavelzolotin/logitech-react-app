@@ -1,7 +1,7 @@
 export type FetchProductsArgs = {
     type: string;
     currentPage: number;
-    category: string;
+    category: string | number;
     search: string;
     filter: string;
     sortType: string;

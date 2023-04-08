@@ -2,11 +2,14 @@
   "compilerOptions": {
     "lib": [
       "dom",
-      "es2015"
+      "dom.iterable",
+      "esnext"
     ],
-    "moduleResolution": "node",
-    "target": "es6",
     "strict": true,
+    "target": "es6",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
     "noImplicitAny": false,
     "esModuleInterop": true,
     "jsx": "react-jsx",

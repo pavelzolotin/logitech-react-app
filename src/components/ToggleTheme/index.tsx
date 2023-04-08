@@ -1,8 +1,8 @@
-import {useEffect} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-import {setTheme} from '../../redux/themeMode/slice';
-import {themeSelector} from '../../redux/themeMode/selectors';
+import { setTheme } from '../../redux/themeMode/slice';
+import { themeSelector } from '../../redux/themeMode/selectors';
 import styles from './ToggleTheme.module.scss';
 import MoonIcon from '../../assets/img/moon-icon.svg';
 import SunIcon from '../../assets/img/sun-warm-icon.svg';
@@ -27,7 +27,7 @@ const ToggleTheme = () => {
     }, [theme]);
 
     return (
-        <>
+        <div className="header__toggle">
             <input
                 className={styles.input}
                 type="checkbox"
@@ -50,7 +50,7 @@ const ToggleTheme = () => {
                 />
                 <span className={styles.toggle} />
             </label>
-        </>
+        </div>
     );
 };
 

@@ -1,3 +1,5 @@
+import { SortPropertyEnum } from '../redux/filter/types';
+
 export const categoriesMice = [
     {
         id: 0,
@@ -48,21 +50,27 @@ export const categoriesKeyboards = [
     }
 ];
 
-export const sorts = [
+type SortItem = {
+    id: number;
+    title: string;
+    sortProperty: SortPropertyEnum;
+}
+
+export const sorts: SortItem[] = [
     {
         id: 0,
         title: 'популярности',
-        sortProperty: 'rating'
+        sortProperty: SortPropertyEnum.rating
     },
     {
         id: 1,
         title: 'стоимости',
-        sortProperty: 'price'
+        sortProperty: SortPropertyEnum.price
     },
     {
         id: 2,
         title: 'алфавиту',
-        sortProperty: 'title'
+        sortProperty: SortPropertyEnum.title
     }
 ];
 

@@ -1,8 +1,8 @@
-import {useEffect, memo} from 'react';
-import {useDispatch} from 'react-redux';
+import { useEffect, memo } from 'react';
+import { useDispatch } from 'react-redux';
 
-import {setCategoryId} from '../redux/filter/slice';
-import {categoriesMice, categoriesKeyboards} from '../utils/constants';
+import { setCategoryId } from '../redux/filter/slice';
+import { categoriesMice, categoriesKeyboards } from '../utils/constants';
 
 type CategoriesProps = {
     type: string;

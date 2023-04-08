@@ -1,13 +1,13 @@
-import {useState, useEffect} from 'react';
-import {useParams, useNavigate, Link} from 'react-router-dom';
-import {useDispatch, useSelector} from 'react-redux';
+import { useState, useEffect } from 'react';
+import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 import axios from 'axios';
 
-import {productSelector} from '../redux/product/selectors';
+import { productSelector } from '../redux/product/selectors';
 import SkeletonSingle from '../components/ProductBlock/SkeletonSingle';
-import {addItem} from '../redux/cart/slice';
-import {cartItemSelectorById} from '../redux/cart/selectors';
+import { addItem } from '../redux/cart/slice';
+import { cartItemSelectorById } from '../redux/cart/selectors';
 
 type ProductState = {
     id: string;
@@ -78,7 +78,7 @@ const SingleProductPage = () => {
         <>
             {
                 isActive
-                    ? <SkeletonSingle/>
+                    ? <SkeletonSingle />
                     : (
                         <div className="single-product-block">
                             <img
@@ -116,7 +116,7 @@ const SingleProductPage = () => {
                                             <svg width="8" height="14" viewBox="0 0 8 14" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M7 13L1 6.93015L6.86175 1" stroke="#D3D3D3" strokeWidth="1.5"
-                                                      strokeLinecap="round" strokeLinejoin="round"/>
+                                                      strokeLinecap="round" strokeLinejoin="round" />
                                             </svg>
                                             <span>Вернуться назад</span>
                                         </Link>

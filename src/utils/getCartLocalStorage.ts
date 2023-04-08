@@ -1,5 +1,5 @@
-import {totalPriceCalc} from './totalPriceCalc';
-import {CartItem} from '../redux/cart/types';
+import { totalPriceCalc } from './totalPriceCalc';
+import { CartItem } from '../redux/cart/types';
 
 export const cartStorage = () => {
     const data = localStorage.getItem('cart');

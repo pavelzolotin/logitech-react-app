@@ -1,7 +1,7 @@
-import {createAsyncThunk} from '@reduxjs/toolkit';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-import {FetchProductsArgs, Product} from './types';
+import { FetchProductsArgs, Product } from './types';
 
 export const fetchProducts = createAsyncThunk<Product[], FetchProductsArgs>(
     'item/fetchProducts',

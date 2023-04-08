@@ -1,15 +1,15 @@
-import {useState, useEffect, useRef} from 'react';
-import {useSelector} from 'react-redux';
-import {useNavigate} from 'react-router-dom';
-import {useAppDispatch} from '../redux/store';
+import { useState, useEffect, useRef } from 'react';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '../redux/store';
 import qs from 'qs';
 
-import {FetchProductsArgs} from '../redux/product/types';
-import {sorts} from '../utils/constants';
-import {productSelector} from '../redux/product/selectors';
-import {fetchProducts} from '../redux/product/asyncActions';
-import {setFilters, setCurrentPage} from '../redux/filter/slice';
-import {filterSelector} from '../redux/filter/selectors';
+import { FetchProductsArgs } from '../redux/product/types';
+import { sorts } from '../utils/constants';
+import { productSelector } from '../redux/product/selectors';
+import { fetchProducts } from '../redux/product/asyncActions';
+import { setFilters, setCurrentPage } from '../redux/filter/slice';
+import { filterSelector } from '../redux/filter/selectors';
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
 import Filters from '../components/Filters';
@@ -40,7 +40,7 @@ const Home = () => {
     ));
 
     const skeletons = [...Array(8)].map((_, i) => (
-        <Skeleton key={i}/>
+        <Skeleton key={i} />
     ));
 
     useEffect(() => {
@@ -152,7 +152,7 @@ const Home = () => {
                     <div className="content__pagination">
                         <Pagination
                             value={currentPage}
-                            onChangePage={number => setCurrentPage(number)}/>
+                            onChangePage={number => setCurrentPage(number)} />
                     </div>
                 ) : null
             }
