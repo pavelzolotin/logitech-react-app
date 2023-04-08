@@ -5,15 +5,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {addItem} from '../../redux/cart/slice';
 import {cartItemSelectorById} from '../../redux/cart/selectors';
 
-type ProductBlockTypes = {
-    id: string;
-    title: string;
-    price: number;
-    imageUrl: string[];
-    colors: object[];
-};
-
-const ProductBlock = ({id, title, imageUrl, price, colors}: ProductBlockTypes) => {
+const ProductBlock = ({id, title, imageUrl, price, colors}) => {
     const dispatch = useDispatch();
     const cartItem = useSelector(cartItemSelectorById(id));
     const [activeColor, setActiveColor] = useState<number>(0);

@@ -7,7 +7,11 @@ const initialState: FilterSliceState = {
     categoryId: localStorage.getItem('category') || 0,
     currentPage: 1,
     filterId: localStorage.getItem('filters'),
-    sort: {title: 'популярности', sortProperty: 'rating'}
+    sort: {
+        id: 0,
+        title: 'популярности',
+        sortProperty: 'rating'
+    }
 };
 
 export const filterSlice = createSlice({

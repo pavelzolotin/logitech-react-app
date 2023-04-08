@@ -48,12 +48,6 @@ export const categoriesKeyboards = [
     }
 ];
 
-export type SortItem = {
-    id: number;
-    title: string;
-    sortProperty: string;
-}
-
 export const sorts = [
     {
         id: 0,

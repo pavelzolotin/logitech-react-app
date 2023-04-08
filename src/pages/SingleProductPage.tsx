@@ -14,13 +14,19 @@ type ProductState = {
     title: string;
     imageUrl: string[];
     description: string;
-    colors: object[];
+    colors: [
+        {
+            id: number;
+            color: string;
+        }
+    ];
     price: number;
+    count: number;
 }
 
 const SingleProductPage = () => {
     const dispatch = useDispatch();
-    const [currentProduct, setCurrentProduct] = useState<ProductState[]>([]);
+    const [currentProduct, setCurrentProduct] = useState<ProductState>([] as any);
     const [activeColor, setActiveColor] = useState<number>(0);
     const [isActive, setIsActive] = useState<boolean>(true);
     const cartItem = useSelector(cartItemSelectorById(currentProduct.id));
@@ -30,17 +36,19 @@ const SingleProductPage = () => {
     const addedCount = cartItem ? cartItem.count : 0;
 
     const onClickAdd = () => {
-        const id: string = currentProduct.id;
-        const title: string = currentProduct.title;
-        const price: number = currentProduct.price;
-        const imageUrl: string[] = currentProduct.imageUrl;
+        const id = currentProduct.id;
+        const title = currentProduct.title;
+        const price = currentProduct.price;
+        const imageUrl = currentProduct.imageUrl;
+        const count = currentProduct.count;
 
         const item = {
             id,
             title,
             price,
             imageUrl,
-            activeColor
+            activeColor,
+            count
         };
 
         dispatch(addItem(item));
@@ -70,7 +78,7 @@ const SingleProductPage = () => {
         <>
             {
                 isActive
-                    ? <SkeletonSingle />
+                    ? <SkeletonSingle/>
                     : (
                         <div className="single-product-block">
                             <img
@@ -108,7 +116,7 @@ const SingleProductPage = () => {
                                             <svg width="8" height="14" viewBox="0 0 8 14" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M7 13L1 6.93015L6.86175 1" stroke="#D3D3D3" strokeWidth="1.5"
-                                                      strokeLinecap="round" strokeLinejoin="round" />
+                                                      strokeLinecap="round" strokeLinejoin="round"/>
                                             </svg>
                                             <span>Вернуться назад</span>
                                         </Link>
