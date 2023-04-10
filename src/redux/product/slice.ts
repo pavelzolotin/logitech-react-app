@@ -5,7 +5,7 @@ import { fetchProducts } from './asyncActions';
 
 const initialState: ProductSliceState = {
     products: [],
-    type: 'mice',
+    type: localStorage.getItem('type') || 'mice',
     status: Status.LOADING
 };
 

@@ -42,6 +42,8 @@ const Home = () => {
     ));
 
     useEffect(() => {
+        localStorage.setItem('type', type);
+
         if (!isSearch.current) {
             const getItems = async () => {
                 const category = categoryId > 0 ? `category=${categoryId}` : '';
@@ -70,6 +72,7 @@ const Home = () => {
 
         isSearch.current = false;
         window.scrollTo(0, 0);
+
     }, [dispatch, searchValue, type, currentPage, categoryId, sortType, orderType, filterId]);
 
     useEffect(() => {
