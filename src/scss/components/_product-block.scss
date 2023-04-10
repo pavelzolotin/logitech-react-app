@@ -8,6 +8,7 @@
   border-radius: 10px;
   transition: all .3s;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 
   &:hover {
     background-color: rgba(129, 129, 129, .2);
