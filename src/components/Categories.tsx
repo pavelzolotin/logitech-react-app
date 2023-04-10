@@ -6,7 +6,7 @@ import { categoriesMice, categoriesKeyboards } from '../utils/constants';
 
 type CategoriesProps = {
     type: string;
-    categoryId: number;
+    categoryId: any;
 };
 
 const Categories = memo(({type, categoryId}: CategoriesProps) => {

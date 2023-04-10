@@ -4,8 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../redux/store';
 import qs from 'qs';
 
-import { FetchProductsArgs } from '../redux/product/types';
-import { sorts } from '../utils/constants';
 import { productSelector } from '../redux/product/selectors';
 import { fetchProducts } from '../redux/product/asyncActions';
 import { setFilters, setCurrentPage } from '../redux/filter/slice';
@@ -76,21 +74,17 @@ const Home = () => {
 
     useEffect(() => {
         if (window.location.search) {
-            const params = (qs.parse(window.location.search.substring(1)) as unknown) as FetchProductsArgs;
-            const sort = sorts.find(obj => obj.sortProperty === params.sortType);
+            const params = qs.parse(window.location.search.substring(1));
 
             dispatch(
                 setFilters({
-                    searchValue: params.search,
-                    categoryId: Number(params.category),
-                    currentPage: Number(params.currentPage),
-                    sort: sort ? sort : sorts[0],
-                    filterId
+                    ...params
                 })
             );
+
             isSearch.current = true;
         }
-    }, [dispatch, filterId]);
+    }, [dispatch]);
 
     useEffect(() => {
         if (isMounted.current) {
