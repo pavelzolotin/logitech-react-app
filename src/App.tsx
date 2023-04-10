@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './pages/Home';
 import PageNotFound from './pages/PageNotFound';
+import Loading from './components/Loading';
 
 import './scss/app.scss';
 
@@ -26,12 +27,12 @@ function App() {
                                     <Home />
                                 } />
                                 <Route path="items/:id" element={
-                                    <Suspense fallback={<div>Идёт загрузка...</div>}>
+                                    <Suspense fallback={<Loading/>}>
                                         <SingleProductPage />
                                     </Suspense>
                                 } />
                                 <Route path="/cart" element={
-                                    <Suspense fallback={<div>Идёт загрузка корзины...</div>}>
+                                    <Suspense fallback={<Loading/>}>
                                         <Cart />
                                     </Suspense>
                                 } />

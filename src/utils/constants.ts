@@ -133,10 +133,6 @@ export const filtersMice = [
             },
             {
                 id: 9,
-                name: 'AAA'
-            },
-            {
-                id: 10,
                 name: 'собственные'
             }
         ]
@@ -146,15 +142,15 @@ export const filtersMice = [
         title: 'Количество кнопок',
         sort: [
             {
-                id: 11,
+                id: 10,
                 name: '2'
             },
             {
-                id: 12,
+                id: 11,
                 name: '3'
             },
             {
-                id: 13,
+                id: 12,
                 name: '4+'
             }
         ]
@@ -218,14 +214,10 @@ export const filtersKeyboards = [
         sort: [
             {
                 id: 8,
-                name: 'AA'
-            },
-            {
-                id: 9,
                 name: 'AAA'
             },
             {
-                id: 10,
+                id: 9,
                 name: 'собственные'
             }
         ]
@@ -235,11 +227,11 @@ export const filtersKeyboards = [
         title: 'Подсветка',
         sort: [
             {
-                id: 11,
+                id: 10,
                 name: 'есть'
             },
             {
-                id: 12,
+                id: 11,
                 name: 'нет'
             }
         ]
