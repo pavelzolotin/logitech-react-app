@@ -1,8 +1,9 @@
 import { useEffect, memo } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { setCategoryId } from '../redux/filter/slice';
-import { categoriesMice, categoriesKeyboards } from '../utils/constants';
+import styles from './Categories.module.scss';
+import { setCategoryId } from '../../redux/filter/slice';
+import { categoriesMice, categoriesKeyboards } from '../../utils/constants';
 
 type CategoriesProps = {
     type: string;
@@ -22,7 +23,7 @@ const Categories = memo(({type, categoryId}: CategoriesProps) => {
         }, [categoryId]);
 
         return (
-            <div className="categories">
+            <div className={`${styles.root} categories`}>
                 <ul>
                     {
                         categoriesType.map((category, i) => (

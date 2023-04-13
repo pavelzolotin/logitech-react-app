@@ -2,14 +2,15 @@ import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 
-import { themeSelector } from '../redux/themeMode/selectors';
-import { setType } from '../redux/product/slice';
-import { cartSelector } from '../redux/cart/selectors';
-import { setCategoryId, setFilterId } from '../redux/filter/slice';
-import Search from './Search';
-import ToggleTheme from './ToggleTheme';
-import LogoDark from '../assets/img/logo.svg';
-import LogoLight from '../assets/img/logo-light.svg';
+import styles from './Header.module.scss';
+import { themeSelector } from '../../redux/themeMode/selectors';
+import { setType } from '../../redux/product/slice';
+import { cartSelector } from '../../redux/cart/selectors';
+import { setCategoryId, setFilterId } from '../../redux/filter/slice';
+import Search from '../Search';
+import ToggleTheme from '../ToggleTheme';
+import LogoDark from '../../assets/img/logo.svg';
+import LogoLight from '../../assets/img/logo-light.svg';
 
 const Header = () => {
     const dispatch = useDispatch();
@@ -44,10 +45,10 @@ const Header = () => {
     }, [items]);
 
     return (
-        <div className="header">
-            <div className="container">
-                <div className="header__left-part">
-                    <div className="header__logo">
+        <div className={`${styles.root} header`}>
+            <div className={styles.container}>
+                <div className={styles.left__part}>
+                    <div className={styles.logo}>
                         <NavLink
                             to="/"
                             onClick={onClickMice}
@@ -59,23 +60,23 @@ const Header = () => {
                         </NavLink>
                         <p>Почувствуйте эффективность</p>
                     </div>
-                    <div className="header__pages">
+                    <div className={styles.pages}>
                         <NavLink
                             to="/"
-                            className="header__pages--link"
+                            className={`${styles.pages__link} header__pages--link`}
                             onClick={onClickMice}
                         >
                             Мыши
                         </NavLink>
                         <NavLink
                             to="/keyboards"
-                            className="header__pages--link"
+                            className={`${styles.pages__link} header__pages--link`}
                             onClick={onClickKeyboards}
                         >
                             Клавиатуры
                         </NavLink>
                     </div>
-                    <div className="header__search--wrapper">
+                    <div className={styles.search__wrapper}>
                         {
                             ((pathname === '/') || (pathname === '/keyboards')) && (
                                 <Search />
@@ -83,10 +84,10 @@ const Header = () => {
                         }
                     </div>
                 </div>
-                <div className="header__right-part">
+                <div className={styles.right__part}>
                     <ToggleTheme />
-                    <div className="header__cart--wrapper">
-                        <button className="header__cart">
+                    <div className={styles.cart__wrapper}>
+                        <button className={styles.cart}>
                             {
                                 pathname !== '/cart' && (
                                     <Link to="/cart" className="button button--cart">

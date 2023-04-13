@@ -1,4 +1,4 @@
-@import '../variables';
+@import '../../scss/variables';
 
 .sort {
   position: relative;
@@ -33,26 +33,23 @@
     padding: 10px 0;
     z-index: 1;
 
-    ul {
+    :global ul {
       overflow: hidden;
-      li {
+
+      :global li {
         padding: 12px 20px;
         cursor: pointer;
 
-        &.active,
+        :global &.active,
         &:hover {
           background: #2e2e2e0d;
         }
 
-        &.active {
+        :global &.active {
           font-weight: bold;
           color: $grey;
         }
       }
     }
   }
-}
-
-.sort-rotated {
-  transform: rotate(180deg);
 }

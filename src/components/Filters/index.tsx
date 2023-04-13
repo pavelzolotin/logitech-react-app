@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { setFilterId } from '../redux/filter/slice';
-import { filterSelector } from '../redux/filter/selectors';
+import styles from './Filters.module.scss';
+import { setFilterId } from '../../redux/filter/slice';
+import { filterSelector } from '../../redux/filter/selectors';
 
-import { filtersKeyboards, filtersMice } from '../utils/constants';
-import { filtersMiceArr, filtersKeyboardsArr } from '../utils/filtersCalc';
+import { filtersKeyboards, filtersMice } from '../../utils/constants';
+import { filtersMiceArr, filtersKeyboardsArr } from '../../utils/filtersCalc';
 
 type FiltersProps = {
     type: string;
@@ -47,21 +48,21 @@ const Filters = ({type}: FiltersProps) => {
     }, [filterId, checkedState, dispatch]);
 
     return (
-        <div className="filters">
+        <div className={`${styles.root} filters`}>
             {
                 devicesType.map(filter => (
                     <div
                         key={filter.id}
-                        className="filter"
+                        className={styles.filter}
                     >
-                        <div className="filter__title">
+                        <div className={`${styles.filter__title} filter__title`}>
                             {filter.title}
                         </div>
                         {
                             filter.sort.map(item => (
                                 <label
                                     key={item.id}
-                                    className="filter__sort"
+                                    className={styles.filter__sort}
                                 >
                                     <input
                                         type="checkbox"

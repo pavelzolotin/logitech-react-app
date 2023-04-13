@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
+import styles from './Product.module.scss';
 import { addItem } from '../../redux/cart/slice';
 import { cartItemSelectorById } from '../../redux/cart/selectors';
 
@@ -26,23 +27,23 @@ const ProductBlock = ({id, title, imageUrl, price, colors}) => {
     };
 
     return (
-        <div className="product-block">
+        <div className={`${styles.product} product`}>
             <Link to={`/items/${id}`}>
                 <img
-                    className="product-block__image"
+                    className={styles.product__image}
                     src={imageUrl[activeColor]}
                     alt="product"
                 />
-                <h4 className="product-block__title">{title}</h4>
+                <h4 className={`${styles.product__title} product__title`}>{title}</h4>
             </Link>
-            <div className="product-block__selector">
+            <div className={`${styles.product__selector} product__selector`}>
                 <p>Цвет:</p>
-                <div className="product-block--colors">
+                <div className="product-block__colors">
                     {
                         colors.map(color => (
                             <div
                                 key={color.id}
-                                className={`product-block--color ${activeColor === color.id || colors.length === 1 ? 'active' : ''}`}
+                                className={`product-block__color ${activeColor === color.id || colors.length === 1 ? 'active' : ''}`}
                                 style={{backgroundColor: `${color.color}`}}
                                 onClick={() => setActiveColor(color.id)}
                             >
@@ -51,8 +52,8 @@ const ProductBlock = ({id, title, imageUrl, price, colors}) => {
                     }
                 </div>
             </div>
-            <div className="product-block__bottom">
-                <div className="product-block__price">{price} <span>₽</span></div>
+            <div className={styles.product__bottom}>
+                <div className={`${styles.product__price} product__price`}>{price} <span>₽</span></div>
                 <button
                     onClick={() => onClickAdd()}
                     className="button button--outline button--add"

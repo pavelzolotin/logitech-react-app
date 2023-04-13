@@ -10,7 +10,7 @@ type PaginationProps = {
 const Pagination = ({value, onChangePage}: PaginationProps) => {
     return (
         <ReactPaginate
-            className={styles.root}
+            className={styles.pagination}
             breakLabel="..."
             previousLabel="<"
             nextLabel=">"

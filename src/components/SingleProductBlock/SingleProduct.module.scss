@@ -1,4 +1,4 @@
-.single-product-block {
+.product {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -60,7 +60,7 @@
       justify-content: center;
     }
 
-    .product-block--colors {
+    :global .product-block__colors {
       justify-content: end;
       padding: 0 12px;
 

@@ -1,6 +1,6 @@
-@import '../variables';
+@import '../../scss/variables';
 
-.product-block {
+.product {
   width: 280px;
   text-align: center;
   margin-bottom: 65px;
@@ -49,7 +49,7 @@
         cursor: pointer;
         font-weight: 600;
         font-size: 14px;
-        @include noselect();
+        user-select: none;
 
         &.active {
           background: $white;
@@ -81,30 +81,5 @@
     line-height: 27px;
     letter-spacing: 0.015em;
     transition: color .3s;
-  }
-
-  &--colors {
-    display: flex;
-    display: -webkit-flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    margin-top: 15px;
-  }
-
-  &--color {
-    width: 30px;
-    height: 30px;
-    border: 1px solid #3b622e;
-    border-radius: 30px;
-    cursor: pointer;
-
-    &:hover {
-      border: 3px solid #3b622e;
-    }
-
-    &.active {
-      border: 3px solid #3b622e;
-    }
   }
 }

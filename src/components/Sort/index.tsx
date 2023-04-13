@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef, memo } from 'react';
 import { useSelector } from 'react-redux';
 
-import { themeSelector } from '../redux/themeMode/selectors';
-import { sorts } from '../utils/constants';
-import ArrowLight from '../assets/img/arrow-light.svg';
-import ArrowDark from '../assets/img/arrow.svg';
+import styles from './Sort.module.scss';
+import { themeSelector } from '../../redux/themeMode/selectors';
+import { sorts } from '../../utils/constants';
+import ArrowLight from '../../assets/img/arrow-light.svg';
+import ArrowDark from '../../assets/img/arrow.svg';
 
 type SortProps = {
     sort: {
@@ -51,8 +52,8 @@ const Sort = memo(({sort, setSort, orderType, setOrderType}: SortProps) => {
         }, [sort, orderType]);
 
         return (
-            <div ref={sortRef} className="sort">
-                <div className="sort__label">
+            <div ref={sortRef} className={`${styles.sort} sort`}>
+                <div className={`${styles.sort__label} sort__label`}>
                     <img
                         src={theme === 'dark' ? ArrowLight : ArrowDark}
                         alt="sort-arrow"
@@ -64,7 +65,7 @@ const Sort = memo(({sort, setSort, orderType, setOrderType}: SortProps) => {
                 </div>
                 {
                     isVisible && (
-                        <div className="sort__popup">
+                        <div className={`${styles.sort__popup} sort__popup`}>
                             <ul>
                                 {
                                     sorts.map(obj => (

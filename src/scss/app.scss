@@ -1,6 +1,6 @@
 @import './variables';
 @import './libs/normalize';
-@import './components/all';
+@import './components/button';
 
 .wrapper {
   width: 100%;
@@ -191,7 +191,7 @@
     display: flex;
     align-items: center;
     cursor: pointer;
-    @include noselect();
+    user-select: none;
 
     span {
       display: inline-block;
@@ -203,155 +203,6 @@
     svg,
     path {
       transition: all $duration ease-in-out;
-    }
-  }
-
-  &__item {
-    display: flex;
-    width: 100%;
-    border-top: 1px solid $gray-line;
-    padding-top: 30px;
-    margin-top: 30px;
-
-    @media (max-width: 767px) {
-      flex-direction: column;
-    }
-
-    &-action {
-      display: flex;
-      width: 45%;
-      justify-content: space-between;
-
-      @media (max-width: 767px) {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-      }
-    }
-
-    &-image {
-      display: flex;
-      align-items: center;
-      margin-right: 15px;
-
-      @media (max-width: 767px) {
-        justify-content: center;
-        margin-bottom: 50px;
-      }
-
-      img {
-        width: 150px;
-        height: 120px;
-
-        @media (max-width: 767px) {
-          width: 60%;
-          height: 100%;
-        }
-      }
-    }
-
-    &-info {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      width: 40%;
-
-      @media (max-width: 767px) {
-        width: 100%;
-        align-items: center;
-        margin-bottom: 40px;
-      }
-
-      h3 {
-        font-weight: bold;
-        font-size: 22px;
-        line-height: 27px;
-        letter-spacing: 0.01em;
-      }
-
-      p {
-        font-size: 18px;
-        color: #8d8d8d;
-      }
-    }
-
-    &-count {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-      width: 15%;
-
-      @media (max-width: 767px) {
-        align-items: center;
-        position: absolute;
-        left: 15px;
-      }
-
-      &-minus {
-        svg {
-          path:first-of-type {
-            display: none;
-          }
-        }
-      }
-
-      b {
-        font-size: 22px;
-      }
-    }
-
-    &-price {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 33%;
-
-      @media (max-width: 767px) {
-        justify-content: center;
-        margin: 40px 0 40px 5px;
-      }
-
-      &--count {
-        font-weight: bold;
-        font-size: 22px;
-        letter-spacing: 0.01em;
-
-        span {
-          opacity: 0.5;
-        }
-      }
-    }
-
-    &-remove {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      width: 4%;
-
-      @media (max-width: 767px) {
-        justify-content: center;
-        position: absolute;
-        right: 30px;
-      }
-
-      svg {
-        transform: rotate(45deg);
-      }
-
-      .button {
-        svg {
-          width: 11.5px;
-          height: 11.5px;
-          position: relative;
-        }
-
-        &:hover,
-        &:active {
-          background-color: darken($grey, 8%);
-        }
-      }
     }
   }
 
@@ -403,6 +254,7 @@
         align-items: center;
         justify-content: center;
         width: 210px;
+        padding: 16px;
 
         &:hover {
           background-color: darken($grey, 8%);
@@ -474,6 +326,33 @@
   }
 }
 
+.product-block {
+  &__colors {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+  }
+
+  &__color {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #3b622e;
+    border-radius: 30px;
+    cursor: pointer;
+
+    &:hover {
+      border: 3px solid #3b622e;
+    }
+
+    &.active {
+      border: 3px solid #3b622e;
+    }
+  }
+}
+
 .dark {
   background-color: #333333;
   color: $white;
@@ -539,6 +418,10 @@
       ul {
         li {
           color: #333333;
+
+          &.active {
+            color: $grey;
+          }
         }
       }
     }
@@ -562,7 +445,7 @@
     }
   }
 
-  .product-block {
+  .product {
     &__selector {
       background-color: #6c6c6c;
 
@@ -665,7 +548,7 @@
     }
   }
 
-  .product-block {
+  .product {
     &__selector {
       background-color: $white-milk;
 
@@ -694,4 +577,8 @@
   .button--outline {
     border: 1px solid #3b622e;
   }
+}
+
+.sort-rotated {
+  transform: rotate(180deg);
 }
