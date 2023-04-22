@@ -13,7 +13,7 @@ import Sort from '../components/Sort';
 import Filters from '../components/Filters';
 import ProductBlock from '../components/ProductBlock';
 import Pagination from '../components/Pagination';
-import Skeleton from '../components/ProductBlock/Skeleton';
+import Skeleton from '../UI/Skeleton/Skeleton';
 
 const Home = () => {
     const sortStorage = localStorage.getItem('sorted');

@@ -65,6 +65,7 @@ const Filters = ({type}: FiltersProps) => {
                                     className={styles.filter__sort}
                                 >
                                     <input
+                                        data-testid="filter-input"
                                         type="checkbox"
                                         checked={filterId === '' ? checkedState[item.id] = false : checkedState[item.id]}
                                         onChange={() => handleOnChangeChecked(item.id)}

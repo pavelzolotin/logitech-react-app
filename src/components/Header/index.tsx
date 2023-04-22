@@ -8,7 +8,7 @@ import { setType } from '../../redux/product/slice';
 import { cartSelector } from '../../redux/cart/selectors';
 import { setCategoryId, setFilterId } from '../../redux/filter/slice';
 import Search from '../Search';
-import ToggleTheme from '../ToggleTheme';
+import ToggleTheme from '../../UI/ToggleTheme';
 import LogoDark from '../../assets/img/logo.svg';
 import LogoLight from '../../assets/img/logo-light.svg';
 

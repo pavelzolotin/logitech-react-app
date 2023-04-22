@@ -5,7 +5,7 @@ import axios from 'axios';
 
 import { productSelector } from '../redux/product/selectors';
 import { cartItemSelectorById } from '../redux/cart/selectors';
-import SkeletonSingle from '../components/ProductBlock/SkeletonSingle';
+import SkeletonSingle from '../UI/Skeleton/SkeletonSingle';
 import SingleProductBlock from '../components/SingleProductBlock';
 
 type ProductState = {

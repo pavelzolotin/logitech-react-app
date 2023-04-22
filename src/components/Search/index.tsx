@@ -40,8 +40,10 @@ const Search = () => {
                 />
             </svg>
             <input
-                ref={inputRef}
                 className={`${styles.input} header__search--input`}
+                data-testid="search-input"
+                ref={inputRef}
+                type="text"
                 placeholder="Поиск"
                 value={value}
                 onChange={onChangeInput}
