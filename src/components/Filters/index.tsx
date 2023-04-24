@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import styles from './Filters.module.scss';
 import { setFilterId } from '../../redux/filter/slice';
 import { filterSelector } from '../../redux/filter/selectors';
+import { productSelector } from '../../redux/product/selectors';
 
 import { filtersKeyboards, filtersMice } from '../../utils/constants';
 import { filtersMiceArr, filtersKeyboardsArr } from '../../utils/filtersCalc';
@@ -18,6 +19,7 @@ const Filters = ({type}: FiltersProps) => {
 
     const dispatch = useDispatch();
     const {filterId} = useSelector(filterSelector);
+    const {products} = useSelector(productSelector);
     const [checkedState, setCheckedState] = useState(() => {
         const checkedSave = localStorage.getItem('filter');
         if (checkedSave) {
@@ -48,36 +50,41 @@ const Filters = ({type}: FiltersProps) => {
     }, [filterId, checkedState, dispatch]);
 
     return (
-        <div className={`${styles.root} filters`}>
+        <>
             {
-                devicesType.map(filter => (
-                    <div
-                        key={filter.id}
-                        className={styles.filter}
-                    >
-                        <div className={`${styles.filter__title} filter__title`}>
-                            {filter.title}
-                        </div>
-                        {
-                            filter.sort.map(item => (
-                                <label
-                                    key={item.id}
-                                    className={styles.filter__sort}
-                                >
-                                    <input
-                                        data-testid="filter-input"
-                                        type="checkbox"
-                                        checked={filterId === '' ? checkedState[item.id] = false : checkedState[item.id]}
-                                        onChange={() => handleOnChangeChecked(item.id)}
-                                    />
-                                    <span>{item.name}</span>
-                                </label>
-                            ))
-                        }
-                    </div>
-                ))
+                products.length > 1 &&
+                <div className={`${styles.root} filters`}>
+                    {
+                        devicesType.map(filter => (
+                            <div
+                                key={filter.id}
+                                className={styles.filter}
+                            >
+                                <div className={`${styles.filter__title} filter__title`}>
+                                    {filter.title}
+                                </div>
+                                {
+                                    filter.sort.map(item => (
+                                        <label
+                                            key={item.id}
+                                            className={styles.filter__sort}
+                                        >
+                                            <input
+                                                data-testid="filter-input"
+                                                type="checkbox"
+                                                checked={filterId === '' ? checkedState[item.id] = false : checkedState[item.id]}
+                                                onChange={() => handleOnChangeChecked(item.id)}
+                                            />
+                                            <span>{item.name}</span>
+                                        </label>
+                                    ))
+                                }
+                            </div>
+                        ))
+                    }
+                </div>
             }
-        </div>
+        </>
     );
 };
 

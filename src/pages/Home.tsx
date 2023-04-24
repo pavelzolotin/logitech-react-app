@@ -23,7 +23,10 @@ const Home = () => {
     const {products, type, status} = useSelector(productSelector);
     const {searchValue, categoryId, filterId, currentPage} = useSelector(filterSelector);
     const [paginationVisible, setPaginationVisible] = useState<boolean>(true);
-    const [sort, setSort] = useState(sortStorage ? JSON.parse(sortStorage) : {title: 'популярности', sortProperty: 'rating'});
+    const [sort, setSort] = useState(sortStorage ? JSON.parse(sortStorage) : {
+        title: 'популярности',
+        sortProperty: 'rating'
+    });
     const [orderType, setOrderType] = useState(localStorage.getItem('order') || 'asc');
     const isSearch = useRef(false);
     const isMounted = useRef(false);
@@ -106,18 +109,21 @@ const Home = () => {
 
     return (
         <>
-            <div className="content__top">
-                <Categories
-                    type={type}
-                    categoryId={categoryId}
-                />
-                <Sort
-                    sort={sort}
-                    setSort={setSort}
-                    orderType={orderType}
-                    setOrderType={setOrderType}
-                />
-            </div>
+            {
+                products.length > 1 &&
+                <div className="content__top">
+                    <Categories
+                        type={type}
+                        categoryId={categoryId}
+                    />
+                    <Sort
+                        sort={sort}
+                        setSort={setSort}
+                        orderType={orderType}
+                        setOrderType={setOrderType}
+                    />
+                </div>
+            }
             <div className="content__main">
                 {
                     status === 'error'
